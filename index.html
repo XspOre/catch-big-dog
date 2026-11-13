@@ -625,7 +625,7 @@
       return false;
     }
     function saveCache(geometry, index) {
-      const cache = {};
+      const cache2 = {};
       const attributes2 = geometry.attributes;
       let attributesNum = 0;
       for (const key in attributes2) {
@@ -635,10 +635,10 @@
         if (attribute.data) {
           data.data = attribute.data;
         }
-        cache[key] = data;
+        cache2[key] = data;
         attributesNum++;
       }
-      currentState.attributes = cache;
+      currentState.attributes = cache2;
       currentState.attributesNum = attributesNum;
       currentState.index = index;
     }
@@ -2010,186 +2010,186 @@
     return r;
   }
   function setValueV1f(gl, v) {
-    const cache = this.cache;
-    if (cache[0] === v) return;
+    const cache2 = this.cache;
+    if (cache2[0] === v) return;
     gl.uniform1f(this.addr, v);
-    cache[0] = v;
+    cache2[0] = v;
   }
   function setValueV2f(gl, v) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     if (v.x !== void 0) {
-      if (cache[0] !== v.x || cache[1] !== v.y) {
+      if (cache2[0] !== v.x || cache2[1] !== v.y) {
         gl.uniform2f(this.addr, v.x, v.y);
-        cache[0] = v.x;
-        cache[1] = v.y;
+        cache2[0] = v.x;
+        cache2[1] = v.y;
       }
     } else {
-      if (arraysEqual(cache, v)) return;
+      if (arraysEqual(cache2, v)) return;
       gl.uniform2fv(this.addr, v);
-      copyArray(cache, v);
+      copyArray(cache2, v);
     }
   }
   function setValueV3f(gl, v) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     if (v.x !== void 0) {
-      if (cache[0] !== v.x || cache[1] !== v.y || cache[2] !== v.z) {
+      if (cache2[0] !== v.x || cache2[1] !== v.y || cache2[2] !== v.z) {
         gl.uniform3f(this.addr, v.x, v.y, v.z);
-        cache[0] = v.x;
-        cache[1] = v.y;
-        cache[2] = v.z;
+        cache2[0] = v.x;
+        cache2[1] = v.y;
+        cache2[2] = v.z;
       }
     } else if (v.r !== void 0) {
-      if (cache[0] !== v.r || cache[1] !== v.g || cache[2] !== v.b) {
+      if (cache2[0] !== v.r || cache2[1] !== v.g || cache2[2] !== v.b) {
         gl.uniform3f(this.addr, v.r, v.g, v.b);
-        cache[0] = v.r;
-        cache[1] = v.g;
-        cache[2] = v.b;
+        cache2[0] = v.r;
+        cache2[1] = v.g;
+        cache2[2] = v.b;
       }
     } else {
-      if (arraysEqual(cache, v)) return;
+      if (arraysEqual(cache2, v)) return;
       gl.uniform3fv(this.addr, v);
-      copyArray(cache, v);
+      copyArray(cache2, v);
     }
   }
   function setValueV4f(gl, v) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     if (v.x !== void 0) {
-      if (cache[0] !== v.x || cache[1] !== v.y || cache[2] !== v.z || cache[3] !== v.w) {
+      if (cache2[0] !== v.x || cache2[1] !== v.y || cache2[2] !== v.z || cache2[3] !== v.w) {
         gl.uniform4f(this.addr, v.x, v.y, v.z, v.w);
-        cache[0] = v.x;
-        cache[1] = v.y;
-        cache[2] = v.z;
-        cache[3] = v.w;
+        cache2[0] = v.x;
+        cache2[1] = v.y;
+        cache2[2] = v.z;
+        cache2[3] = v.w;
       }
     } else {
-      if (arraysEqual(cache, v)) return;
+      if (arraysEqual(cache2, v)) return;
       gl.uniform4fv(this.addr, v);
-      copyArray(cache, v);
+      copyArray(cache2, v);
     }
   }
   function setValueM2(gl, v) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     const elements = v.elements;
     if (elements === void 0) {
-      if (arraysEqual(cache, v)) return;
+      if (arraysEqual(cache2, v)) return;
       gl.uniformMatrix2fv(this.addr, false, v);
-      copyArray(cache, v);
+      copyArray(cache2, v);
     } else {
-      if (arraysEqual(cache, elements)) return;
+      if (arraysEqual(cache2, elements)) return;
       mat2array.set(elements);
       gl.uniformMatrix2fv(this.addr, false, mat2array);
-      copyArray(cache, elements);
+      copyArray(cache2, elements);
     }
   }
   function setValueM3(gl, v) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     const elements = v.elements;
     if (elements === void 0) {
-      if (arraysEqual(cache, v)) return;
+      if (arraysEqual(cache2, v)) return;
       gl.uniformMatrix3fv(this.addr, false, v);
-      copyArray(cache, v);
+      copyArray(cache2, v);
     } else {
-      if (arraysEqual(cache, elements)) return;
+      if (arraysEqual(cache2, elements)) return;
       mat3array.set(elements);
       gl.uniformMatrix3fv(this.addr, false, mat3array);
-      copyArray(cache, elements);
+      copyArray(cache2, elements);
     }
   }
   function setValueM4(gl, v) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     const elements = v.elements;
     if (elements === void 0) {
-      if (arraysEqual(cache, v)) return;
+      if (arraysEqual(cache2, v)) return;
       gl.uniformMatrix4fv(this.addr, false, v);
-      copyArray(cache, v);
+      copyArray(cache2, v);
     } else {
-      if (arraysEqual(cache, elements)) return;
+      if (arraysEqual(cache2, elements)) return;
       mat4array.set(elements);
       gl.uniformMatrix4fv(this.addr, false, mat4array);
-      copyArray(cache, elements);
+      copyArray(cache2, elements);
     }
   }
   function setValueV1i(gl, v) {
-    const cache = this.cache;
-    if (cache[0] === v) return;
+    const cache2 = this.cache;
+    if (cache2[0] === v) return;
     gl.uniform1i(this.addr, v);
-    cache[0] = v;
+    cache2[0] = v;
   }
   function setValueV2i(gl, v) {
-    const cache = this.cache;
-    if (arraysEqual(cache, v)) return;
+    const cache2 = this.cache;
+    if (arraysEqual(cache2, v)) return;
     gl.uniform2iv(this.addr, v);
-    copyArray(cache, v);
+    copyArray(cache2, v);
   }
   function setValueV3i(gl, v) {
-    const cache = this.cache;
-    if (arraysEqual(cache, v)) return;
+    const cache2 = this.cache;
+    if (arraysEqual(cache2, v)) return;
     gl.uniform3iv(this.addr, v);
-    copyArray(cache, v);
+    copyArray(cache2, v);
   }
   function setValueV4i(gl, v) {
-    const cache = this.cache;
-    if (arraysEqual(cache, v)) return;
+    const cache2 = this.cache;
+    if (arraysEqual(cache2, v)) return;
     gl.uniform4iv(this.addr, v);
-    copyArray(cache, v);
+    copyArray(cache2, v);
   }
   function setValueV1ui(gl, v) {
-    const cache = this.cache;
-    if (cache[0] === v) return;
+    const cache2 = this.cache;
+    if (cache2[0] === v) return;
     gl.uniform1ui(this.addr, v);
-    cache[0] = v;
+    cache2[0] = v;
   }
   function setValueV2ui(gl, v) {
-    const cache = this.cache;
-    if (arraysEqual(cache, v)) return;
+    const cache2 = this.cache;
+    if (arraysEqual(cache2, v)) return;
     gl.uniform2uiv(this.addr, v);
-    copyArray(cache, v);
+    copyArray(cache2, v);
   }
   function setValueV3ui(gl, v) {
-    const cache = this.cache;
-    if (arraysEqual(cache, v)) return;
+    const cache2 = this.cache;
+    if (arraysEqual(cache2, v)) return;
     gl.uniform3uiv(this.addr, v);
-    copyArray(cache, v);
+    copyArray(cache2, v);
   }
   function setValueV4ui(gl, v) {
-    const cache = this.cache;
-    if (arraysEqual(cache, v)) return;
+    const cache2 = this.cache;
+    if (arraysEqual(cache2, v)) return;
     gl.uniform4uiv(this.addr, v);
-    copyArray(cache, v);
+    copyArray(cache2, v);
   }
   function setValueT1(gl, v, textures) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     const unit = textures.allocateTextureUnit();
-    if (cache[0] !== unit) {
+    if (cache2[0] !== unit) {
       gl.uniform1i(this.addr, unit);
-      cache[0] = unit;
+      cache2[0] = unit;
     }
     textures.safeSetTexture2D(v || emptyTexture, unit);
   }
   function setValueT3D1(gl, v, textures) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     const unit = textures.allocateTextureUnit();
-    if (cache[0] !== unit) {
+    if (cache2[0] !== unit) {
       gl.uniform1i(this.addr, unit);
-      cache[0] = unit;
+      cache2[0] = unit;
     }
     textures.setTexture3D(v || emptyTexture3d, unit);
   }
   function setValueT6(gl, v, textures) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     const unit = textures.allocateTextureUnit();
-    if (cache[0] !== unit) {
+    if (cache2[0] !== unit) {
       gl.uniform1i(this.addr, unit);
-      cache[0] = unit;
+      cache2[0] = unit;
     }
     textures.safeSetTextureCube(v || emptyCubeTexture, unit);
   }
   function setValueT2DArray1(gl, v, textures) {
-    const cache = this.cache;
+    const cache2 = this.cache;
     const unit = textures.allocateTextureUnit();
-    if (cache[0] !== unit) {
+    if (cache2[0] !== unit) {
       gl.uniform1i(this.addr, unit);
-      cache[0] = unit;
+      cache2[0] = unit;
     }
     textures.setTexture2DArray(v || emptyTexture2dArray, unit);
   }
@@ -3587,7 +3587,7 @@
     return (lightB.castShadow ? 1 : 0) - (lightA.castShadow ? 1 : 0);
   }
   function WebGLLights(extensions, capabilities) {
-    const cache = new UniformsCache();
+    const cache2 = new UniformsCache();
     const shadowCache = ShadowUniformsCache();
     const state = {
       version: 0,
@@ -3652,7 +3652,7 @@
             state.probe[j].addScaledVector(light.sh.coefficients[j], intensity);
           }
         } else if (light.isDirectionalLight) {
-          const uniforms = cache.get(light);
+          const uniforms = cache2.get(light);
           uniforms.color.copy(light.color).multiplyScalar(light.intensity * scaleFactor);
           if (light.castShadow) {
             const shadow = light.shadow;
@@ -3669,7 +3669,7 @@
           state.directional[directionalLength] = uniforms;
           directionalLength++;
         } else if (light.isSpotLight) {
-          const uniforms = cache.get(light);
+          const uniforms = cache2.get(light);
           uniforms.position.setFromMatrixPosition(light.matrixWorld);
           uniforms.color.copy(color).multiplyScalar(intensity * scaleFactor);
           uniforms.distance = distance;
@@ -3691,14 +3691,14 @@
           state.spot[spotLength] = uniforms;
           spotLength++;
         } else if (light.isRectAreaLight) {
-          const uniforms = cache.get(light);
+          const uniforms = cache2.get(light);
           uniforms.color.copy(color).multiplyScalar(intensity);
           uniforms.halfWidth.set(light.width * 0.5, 0, 0);
           uniforms.halfHeight.set(0, light.height * 0.5, 0);
           state.rectArea[rectAreaLength] = uniforms;
           rectAreaLength++;
         } else if (light.isPointLight) {
-          const uniforms = cache.get(light);
+          const uniforms = cache2.get(light);
           uniforms.color.copy(light.color).multiplyScalar(light.intensity * scaleFactor);
           uniforms.distance = light.distance;
           uniforms.decay = light.decay;
@@ -3719,7 +3719,7 @@
           state.point[pointLength] = uniforms;
           pointLength++;
         } else if (light.isHemisphereLight) {
-          const uniforms = cache.get(light);
+          const uniforms = cache2.get(light);
           uniforms.skyColor.copy(light.color).multiplyScalar(intensity * scaleFactor);
           uniforms.groundColor.copy(light.groundColor).multiplyScalar(intensity * scaleFactor);
           state.hemi[hemiLength] = uniforms;
@@ -11967,10 +11967,10 @@
           }
           output.object = object;
           return output;
-          function extractFromCache(cache) {
+          function extractFromCache(cache2) {
             const values = [];
-            for (const key in cache) {
-              const data = cache[key];
+            for (const key in cache2) {
+              const data = cache2[key];
               delete data.metadata;
               values.push(data);
             }
@@ -12402,10 +12402,10 @@
           if (this.visible === false) data.visible = false;
           if (this.toneMapped === false) data.toneMapped = false;
           if (JSON.stringify(this.userData) !== "{}") data.userData = this.userData;
-          function extractFromCache(cache) {
+          function extractFromCache(cache2) {
             const values = [];
-            for (const key in cache) {
-              const data2 = cache[key];
+            for (const key in cache2) {
+              const data2 = cache2[key];
               delete data2.metadata;
               values.push(data2);
             }
@@ -15901,11 +15901,11 @@
       mat3array = new Float32Array(9);
       mat2array = new Float32Array(4);
       PureArrayUniform.prototype.updateCache = function(data) {
-        const cache = this.cache;
-        if (data instanceof Float32Array && cache.length !== data.length) {
+        const cache2 = this.cache;
+        if (data instanceof Float32Array && cache2.length !== data.length) {
           this.cache = new Float32Array(data.length);
         }
-        copyArray(cache, data);
+        copyArray(cache2, data);
       };
       StructuredUniform.prototype.setValue = function(gl, value, textures) {
         const seq = this.seq;
@@ -17929,18 +17929,18 @@
             return this.cacheArcLengths;
           }
           this.needsUpdate = false;
-          const cache = [];
+          const cache2 = [];
           let current, last = this.getPoint(0);
           let sum = 0;
-          cache.push(0);
+          cache2.push(0);
           for (let p = 1; p <= divisions; p++) {
             current = this.getPoint(p / divisions);
             sum += current.distanceTo(last);
-            cache.push(sum);
+            cache2.push(sum);
             last = current;
           }
-          this.cacheArcLengths = cache;
-          return cache;
+          this.cacheArcLengths = cache2;
+          return cache2;
         }
         updateArcLengths() {
           this.needsUpdate = true;
@@ -24984,6 +24984,7 @@
           ear: "point",
           pattern: "shiba",
           accessory: "bandana",
+          tail: "curl",
           intro: "\u7B11\u8D77\u6765\u773C\u775B\u5F2F\u5F2F\u7684\u5C0F\u67F4"
         },
         {
@@ -24996,6 +24997,7 @@
           ear: "point",
           pattern: "husky",
           accessory: "goggles",
+          tail: "fluffy",
           intro: "\u7CBE\u529B\u65FA\u76DB\u7684\u96EA\u6A47\u5C0F\u961F\u957F"
         },
         {
@@ -25008,6 +25010,8 @@
           ear: "big",
           pattern: "corgi",
           accessory: "collar",
+          tail: "stub",
+          tongue: true,
           intro: "\u8DD1\u8D77\u6765\u5C41\u80A1\u4E00\u626D\u4E00\u626D"
         },
         {
@@ -25020,6 +25024,7 @@
           ear: "floppy",
           pattern: "curly",
           accessory: "bow",
+          tail: "fluffy",
           intro: "\u4ECA\u5929\u4E5F\u662F\u7CBE\u81F4\u7684\u5C0F\u5377\u6BDB"
         },
         {
@@ -25044,6 +25049,8 @@
           ear: "floppy",
           pattern: "none",
           accessory: "bandana",
+          tail: "fluffy",
+          tongue: true,
           intro: "\u516C\u8BA4\u7684\u6E29\u67D4\u5927\u6696\u7537"
         },
         {
@@ -25056,6 +25063,7 @@
           ear: "point",
           pattern: "tanbrow",
           accessory: "collar",
+          tail: "curl",
           intro: "\u9ED1\u5F97\u53D1\u4EAE\uFF0C\u7709\u6BDB\u662F\u672C\u4F53"
         },
         {
@@ -25068,6 +25076,7 @@
           ear: "fold",
           pattern: "bulldog",
           accessory: "collar",
+          tail: "stub",
           intro: "\u770B\u8D77\u6765\u51F6\uFF0C\u5176\u5B9E\u8D85\u9ECF\u4EBA"
         },
         {
@@ -25080,6 +25089,8 @@
           ear: "fold",
           pattern: "pug",
           accessory: "bandana",
+          tail: "curl",
+          tongue: true,
           intro: "\u6EE1\u8138\u5199\u7740\u201C\u518D\u6765\u4E00\u5757\u8089\u5E72\u201D"
         },
         {
@@ -25090,9 +25101,79 @@
           dark: "#B8AB99",
           accent: "#74B9D6",
           ear: "point",
-          pattern: "none",
+          pattern: "fluff",
           accessory: "goggles",
+          tail: "curl",
+          tongue: true,
           intro: "\u7B11\u8D77\u6765\u50CF\u4E00\u6735\u4F1A\u8D70\u8DEF\u7684\u4E91"
+        },
+        {
+          id: "orangecat",
+          name: "\u6A58\u5EA7",
+          kind: "cat",
+          fur: "#F0A04B",
+          light: "#FDE6C6",
+          dark: "#B9612A",
+          accent: "#5DB0E0",
+          ear: "cat",
+          pattern: "tabby",
+          accessory: "bell",
+          eye: "#9CCB4E",
+          intro: "\u5341\u53EA\u6A58\u732B\u4E5D\u53EA\u80D6\uFF0C\u8FD8\u6709\u4E00\u53EA\u538B\u584C\u7095"
+        },
+        {
+          id: "ragdoll",
+          name: "\u5E03\u5E03",
+          kind: "cat",
+          fur: "#F5ECDF",
+          light: "#FFFFFF",
+          dark: "#7A5B4A",
+          accent: "#E58FB0",
+          ear: "cat",
+          pattern: "points",
+          accessory: "bow",
+          eye: "#5FA8E8",
+          intro: "\u62B1\u8D77\u6765\u5C31\u8F6F\u6210\u4E00\u644A\u7684\u84DD\u773C\u775B\u4ED9\u5973"
+        },
+        {
+          id: "tabby",
+          name: "\u72F8\u82B1",
+          kind: "cat",
+          fur: "#A08C72",
+          light: "#EEE3CF",
+          dark: "#4A3E31",
+          accent: "#E86A5C",
+          ear: "cat",
+          pattern: "tabby",
+          accessory: "collar",
+          eye: "#C9D64A",
+          intro: "\u5C0F\u533A\u4E00\u9738\uFF0C\u6293\u5B83\u8981\u8BB2\u6B66\u5FB7"
+        },
+        {
+          id: "blackcat",
+          name: "\u5C0F\u9ED1",
+          kind: "cat",
+          fur: "#34333A",
+          light: "#4D4B55",
+          dark: "#1B1A1F",
+          accent: "#F0C24E",
+          ear: "cat",
+          pattern: "none",
+          accessory: "bell",
+          eye: "#F2CB3A",
+          whisker: "#D8D2C8",
+          intro: "\u9ED1\u591C\u91CC\u53EA\u770B\u5F97\u89C1\u4E24\u53EA\u773C\u775B"
+        },
+        {
+          id: "godzilla",
+          name: "\u5C0F\u54E5\u65AF\u62C9",
+          kind: "monster",
+          fur: "#5E9E5A",
+          light: "#D4EAAE",
+          dark: "#2E5A34",
+          accent: "#9FE8E0",
+          intro: "\u5047\u88C5\u5F88\u51F6\u7684\u602A\u517D\u5B9D\u5B9D\uFF0C\u4F1A\u6EE1\u76C6\u4E71\u8DD1",
+          special: true
         },
         {
           id: "maltese",
@@ -25104,6 +25185,7 @@
           ear: "floppy",
           pattern: "maltese",
           accessory: "bow",
+          tail: "fluffy",
           intro: "\u6700\u7EC8\u8981\u6293\u5230\u7684\u5927\u72D7\uFF0C\u4E00\u53EA\u767D\u8272\u9A6C\u5C14\u6D4E\u65AF",
           final: true
         }
@@ -25114,38 +25196,63 @@
           name: "\u65B0\u624B\u8349\u576A",
           tag: "\u70ED\u8EAB\u4E00\u4E0B",
           time: 180,
-          triples: 6,
-          types: ["shiba", "corgi", "poodle", "husky", "golden", "pug"],
+          triples: 7,
+          types: ["shiba", "corgi", "poodle", "husky", "golden", "pug", "orangecat"],
+          runners: ["golden"],
+          activeMax: 24,
           reward: "golden",
           difficulty: 1,
           theme: "park",
-          blurb: "6 \u79CD\u72D7\u72D7 \xB7 18 \u53EA \xB7 \u8F7B\u677E\u4E0A\u624B"
+          blurb: "7 \u79CD\u840C\u5BA0 \xB7 21 \u53EA \xB7 \u5927\u9EC4\u4F1A\u4E71\u8DD1"
         },
         {
           id: 2,
           name: "\u516C\u56ED\u96C6\u5E02",
           tag: "\u624B\u901F\u8FDB\u9636",
           time: 300,
-          triples: 12,
-          types: ["shiba", "husky", "corgi", "dalmatian", "golden", "bulldog", "pug", "samoyed"],
+          triples: 14,
+          types: ["shiba", "husky", "corgi", "dalmatian", "golden", "bulldog", "pug", "samoyed", "orangecat", "ragdoll"],
+          runners: ["husky"],
+          activeMax: 30,
           reward: "husky",
           difficulty: 2,
           theme: "market",
-          blurb: "8 \u79CD\u72D7\u72D7 \xB7 36 \u53EA \xB7 \u522B\u628A\u683C\u5B50\u585E\u6EE1"
+          blurb: "10 \u79CD\u840C\u5BA0 \xB7 42 \u53EA \xB7 \u6293\u4F4F\u4E71\u7A9C\u7684\u4E8C\u54C8"
         },
         {
           id: 3,
           name: "\u5BFB\u627E\u85AF\u6761",
           tag: "\u7EC8\u6781\u76EE\u6807",
           time: 420,
-          triples: 15,
-          types: ["shiba", "husky", "corgi", "poodle", "dalmatian", "golden", "blackshiba", "bulldog", "pug", "samoyed"],
+          triples: 18,
+          types: ["shiba", "husky", "corgi", "poodle", "dalmatian", "golden", "blackshiba", "bulldog", "pug", "samoyed", "tabby", "blackcat", "maltese"],
+          runners: ["maltese"],
+          activeMax: 32,
           reward: "maltese",
           difficulty: 3,
           theme: "sports",
-          blurb: "10 \u79CD\u72D7\u72D7 \xB7 45 \u53EA \xB7 \u6700\u540E\u6293\u4F4F\u85AF\u6761"
+          blurb: "13 \u79CD\u840C\u5BA0 \xB7 54 \u53EA \xB7 \u85AF\u6761\u6EE1\u76C6\u8DD1"
+        },
+        {
+          id: 4,
+          name: "\u54E5\u65AF\u62C9\u5DE2\u7A74",
+          tag: "\u5730\u72F1\u96BE\u5EA6",
+          time: 150,
+          triples: 26,
+          types: ["shiba", "husky", "corgi", "poodle", "dalmatian", "golden", "blackshiba", "bulldog", "pug", "samoyed", "orangecat", "ragdoll", "tabby", "blackcat", "maltese", "godzilla"],
+          runners: ["godzilla", "blackcat", "husky", "maltese"],
+          activeMax: 40,
+          runnerSpeed: 1.9,
+          props: { undo: 0, shuffle: 1, hint: 0 },
+          reward: "godzilla",
+          difficulty: 5,
+          theme: "lava",
+          hard: true,
+          open: true,
+          blurb: "16 \u79CD \xB7 78 \u53EA \xB7 2\u520630\u79D2 \xB7 \u6CA1\u4EBA\u901A\u5173\u8FC7"
         }
       ];
+      var MAIN_LEVELS = 3;
       var THEMES = {
         home: {
           sky1: "#A9DEF0",
@@ -25176,6 +25283,16 @@
           sun: "#FFEDB5",
           cloud: "#FFF8EA",
           ink: "#573A2A"
+        },
+        lava: {
+          sky1: "#F59A72",
+          sky2: "#FFE2B3",
+          hill1: "#B98A6B",
+          hill2: "#8E6450",
+          ground: "#9A7058",
+          sun: "#FFD27A",
+          cloud: "#FFE9D6",
+          ink: "#4B2A20"
         },
         sports: {
           sky1: "#B9E7EF",
@@ -25262,6 +25379,7 @@
         DESIGN_H,
         DOG_TYPES,
         LEVELS,
+        MAIN_LEVELS,
         THEMES,
         COLORS,
         getLayout,
@@ -25286,8 +25404,13 @@
       var spriteCache = {};
       var SPRITE_BOX = 160;
       var SPRITE_SCALE = 2;
+      var portraitProvider = null;
       function init(platform) {
         platformRef = platform;
+      }
+      function setPortraitProvider(fn) {
+        portraitProvider = fn;
+        spriteCache = {};
       }
       function ellipsePath(c, x, y, rx, ry, rot) {
         c.save();
@@ -25792,7 +25915,20 @@
         canvas.height = size;
         var c = canvas.getContext("2d");
         c.scale(SPRITE_SCALE, SPRITE_SCALE);
-        drawDogArtWithBase(c, type);
+        var portrait = null;
+        if (portraitProvider) {
+          try {
+            portrait = portraitProvider(typeId);
+          } catch (err) {
+            portrait = null;
+          }
+        }
+        if (portrait) {
+          fillEllipse(c, 80, 136, 44, 10, "rgba(61,40,24,0.16)");
+          c.drawImage(portrait, -12, -16, 184, 184);
+        } else {
+          drawDogArtWithBase(c, type);
+        }
         spriteCache[typeId] = { canvas, size: SPRITE_BOX };
         return spriteCache[typeId];
       }
@@ -26300,6 +26436,7 @@
       }
       module.exports = {
         init,
+        setPortraitProvider,
         colors: C,
         roundRectPath,
         fillRound,
@@ -26393,6 +26530,7 @@
         Art2.drawPaw(c, (W - bw) / 2 + 22, by + 14, 13, C.orange, -0.2, 0.9);
         Art2.drawText(c, "\u72D7\u72D7\u516C\u56ED \xB7 \u4ECA\u65E5\u8425\u4E1A", W / 2 + 10, by + 14, 12, C.inkSoft, "center", "700");
         drawTitle(c, "\u6293\u5927\u72D7", W / 2, L.safeTop + 89, 58);
+        hit(state, W / 2 - 100, L.safeTop + 50, 200, 70, "titleTap");
         Art2.drawText(c, "\u4E09\u53EA\u540C\u6B3E \xB7 \u5168\u90E8\u5E26\u8D70", W / 2, L.safeTop + 130, 13, "rgba(91,60,40,0.72)", "center", "700");
         var ry = L.safeTop + 151;
         Art2.fillRound(c, W / 2 - 143, ry, 286, 27, 13.5, "rgba(255,253,246,0.86)");
@@ -26440,19 +26578,68 @@
         hit(state, W / 2 - btnW / 2, btnY, btnW, 62, "openLevels");
         var pillY = L.homePillY;
         var pillW = 132;
-        Art2.drawPill(c, W / 2 - pillW - 6, pillY, pillW, 42, "\u5173\u5361 " + Math.min(state.save.unlocked, 3) + " / 3", {
+        Art2.drawPill(c, W / 2 - pillW - 6, pillY, pillW, 42, "\u5173\u5361 " + Math.min(state.save.unlocked, Config3.MAIN_LEVELS) + " / " + Config3.MAIN_LEVELS, {
           icon: "play",
           fontSize: 12,
           fill: "rgba(255,253,246,0.88)"
         });
         hit(state, W / 2 - pillW - 6, pillY, pillW, 42, "openLevels");
-        Art2.drawPill(c, W / 2 + 6, pillY, pillW, 42, "\u72D7\u72D7\u56FE\u9274 " + state.save.seen.length + "/11", {
+        Art2.drawPill(c, W / 2 + 6, pillY, pillW, 42, "\u840C\u5BA0\u56FE\u9274 " + seenCount(state) + "/" + Config3.DOG_TYPES.length, {
           icon: "paw",
           fontSize: 12,
           fill: "rgba(255,253,246,0.88)"
         });
         hit(state, W / 2 + 6, pillY, pillW, 42, "openCollection");
         Art2.drawText(c, "\u70B9\u4E00\u70B9 \xB7 \u6447\u4E00\u6447 \xB7 \u6293\u8D70\u85AF\u6761", W / 2, H - L.safeBottom - 22, 10.5, "rgba(72,53,38,0.58)", "center", "700");
+        if (state.cheatPanel) drawCheatPanel(c, state, L, t);
+      }
+      function drawCheatPanel(c, state, L, t) {
+        var W = L.W;
+        var H = L.H;
+        var cheats = state.save.cheats || {};
+        state.hits = [];
+        c.save();
+        c.fillStyle = "rgba(20,14,10,0.62)";
+        c.fillRect(0, 0, W, H);
+        var cw = 300;
+        var rows = [
+          { key: "freeze", title: "\u65F6\u95F4\u51BB\u7ED3", desc: "\u5012\u8BA1\u65F6\u4E0D\u518D\u51CF\u5C11" },
+          { key: "infinite", title: "\u9053\u5177\u65E0\u9650", desc: "\u64A4\u56DE / \u6D17\u724C / \u63D0\u793A\u968F\u4FBF\u7528" },
+          { key: "auto", title: "\u81EA\u52A8\u51D1\u9F50", desc: "\u70B9\u4E00\u53EA\uFF0C\u540C\u6B3E\u53E6\u5916\u4E24\u53EA\u81EA\u52A8\u8FDB\u680F" },
+          { key: "instant", title: "\u4E00\u952E\u79D2\u8D62", desc: "\u6E38\u620F\u91CC\u8FDE\u70B9\u5DE6\u4E0A\u89D2\u5173\u5361\u724C 3 \u4E0B" }
+        ];
+        var ch = 120 + rows.length * 58 + 64;
+        var x = (W - cw) / 2;
+        var y = (H - ch) / 2;
+        Art2.softShadow(c, 24, "rgba(0,0,0,0.4)", 0, 10);
+        Art2.fillRound(c, x, y, cw, ch, 26, "#2B2236");
+        Art2.clearShadow(c);
+        Art2.strokeRound(c, x + 1.5, y + 1.5, cw - 3, ch - 3, 25, "rgba(159,232,224,0.45)", 2);
+        Art2.drawDog(c, "godzilla", x + 46, y + 48, 62, -0.08, 1);
+        Art2.drawTextOutline(c, "\u79D8\u5BC6\u4F5C\u5F0A\u9762\u677F", x + 86, y + 40, 20, "#9FE8E0", "rgba(0,0,0,0.4)", 3, "left", "900");
+        Art2.drawText(c, "\u5618\u2026\u53EA\u6709\u4F60\u77E5\u9053", x + 87, y + 66, 10.5, "rgba(230,240,255,0.6)", "left", "700");
+        for (var i = 0; i < rows.length; i++) {
+          var r = rows[i];
+          var on = !!cheats[r.key];
+          var ry = y + 100 + i * 58;
+          Art2.fillRound(c, x + 16, ry, cw - 32, 48, 16, on ? "rgba(159,232,224,0.16)" : "rgba(255,255,255,0.06)");
+          Art2.drawText(c, r.title, x + 32, ry + 17, 14, "#FFF6E6", "left", "900");
+          Art2.drawText(c, r.desc, x + 32, ry + 35, 9.5, "rgba(255,246,230,0.6)", "left", "600");
+          var sx = x + cw - 74;
+          Art2.fillRound(c, sx, ry + 12, 46, 24, 12, on ? "#4CC2A8" : "rgba(255,255,255,0.18)");
+          Art2.fillEllipse(c, on ? sx + 34 : sx + 12, ry + 24, 9, 9, "#FFFFFF");
+          hit(state, x + 16, ry, cw - 32, 48, "cheat:" + r.key);
+        }
+        var by = y + ch - 58;
+        Art2.drawButton(c, x + 24, by, cw - 48, 42, "\u6536\u8D77\u9762\u677F", { fontSize: 15 });
+        hit(state, x + 24, by, cw - 48, 42, "closeCheats");
+        hit(state, W / 2 - 100, L.safeTop + 50, 200, 70, "titleTap");
+        c.restore();
+      }
+      function seenCount(state) {
+        var n = 0;
+        for (var i = 0; i < Config3.DOG_TYPES.length; i++) if (state.save.seen.indexOf(Config3.DOG_TYPES[i].id) >= 0) n++;
+        return n;
       }
       function drawLevelSelect(c, state, L, t) {
         var W = L.W;
@@ -26464,18 +26651,19 @@
         Art2.drawText(c, "\u6BCF\u4E00\u5173\u90FD\u80FD\u6293\u5230\u4E00\u4F4D\u65B0\u4F19\u4F34", W / 2, L.safeTop + 86, 11.5, "rgba(86,58,39,0.65)", "center", "700");
         var cardX = 22;
         var cardW = W - 44;
-        var cardH = 136;
-        var gap = 13;
-        var y0 = L.safeTop + 108;
+        var cardH = 118;
+        var gap = 10;
+        var y0 = L.safeTop + 104;
         for (var i = 0; i < Config3.LEVELS.length; i++) {
           var lv = Config3.LEVELS[i];
           var y = y0 + i * (cardH + gap);
-          var unlocked = i < state.save.unlocked;
+          var unlocked = i < state.save.unlocked || !!lv.open;
+          var hard = !!lv.hard;
           var cleared = state.save.cleared.indexOf(lv.id) >= 0;
           var theme = Config3.getTheme(lv.theme);
           c.save();
           Art2.softShadow(c, 14, "rgba(82,52,30,0.2)", 0, 5);
-          Art2.fillRound(c, cardX, y, cardW, cardH, 24, "#FFF9EA");
+          Art2.fillRound(c, cardX, y, cardW, cardH, 24, hard ? "#3A2430" : "#FFF9EA");
           Art2.clearShadow(c);
           c.save();
           Art2.roundRectPath(c, cardX, y, cardW, cardH, 24);
@@ -26484,23 +26672,26 @@
           c.globalAlpha = 0.25;
           c.fillRect(cardX, y, cardW, cardH);
           c.globalAlpha = 1;
-          Art2.fillEllipse(c, cardX + cardW - 55, y + 15, 58, 28, Art2.withAlpha(theme.sun, 0.6));
+          if (!hard) Art2.fillEllipse(c, cardX + cardW - 55, y + 15, 58, 28, Art2.withAlpha(theme.sun, 0.6));
           c.restore();
           Art2.strokeRound(c, cardX + 1, y + 1, cardW - 2, cardH - 2, 23, "rgba(137,95,55,0.14)", 1.5);
-          Art2.fillEllipse(c, cardX + 43, y + 43, 24, 24, lv.difficulty === 3 ? "#F0B44E" : lv.difficulty === 2 ? "#8DBC72" : "#F39A61");
-          Art2.drawText(c, String(lv.id), cardX + 43, y + 44, 22, "#FFFFFF", "center", "900");
-          Art2.drawText(c, lv.tag, cardX + 43, y + 77, 9.5, C.inkSoft, "center", "700");
-          Art2.drawText(c, lv.name, cardX + 79, y + 34, 20, C.ink, "left", "900");
-          Art2.drawText(c, lv.blurb, cardX + 79, y + 59, 10.5, C.inkSoft, "left", "600");
-          for (var d = 0; d < 3; d++) {
-            Art2.fillEllipse(c, cardX + 82 + d * 12, y + 79, 4, 4, d < lv.difficulty ? C.orange : "rgba(95,72,53,0.16)");
+          var ink = hard ? "#FFE9D6" : C.ink;
+          var inkSoft = hard ? "rgba(255,225,205,0.72)" : C.inkSoft;
+          Art2.fillEllipse(c, cardX + 43, y + 40, 23, 23, hard ? "#E0483A" : lv.difficulty === 3 ? "#F0B44E" : lv.difficulty === 2 ? "#8DBC72" : "#F39A61");
+          Art2.drawText(c, hard ? "!" : String(lv.id), cardX + 43, y + 41, 22, "#FFFFFF", "center", "900");
+          Art2.drawText(c, lv.tag, cardX + 43, y + 75, 9.5, hard ? "#FF8A70" : C.inkSoft, "center", "800");
+          Art2.drawText(c, lv.name, cardX + 79, y + 31, 19, ink, "left", "900");
+          Art2.drawText(c, lv.blurb, cardX + 79, y + 54, 10, inkSoft, "left", "600");
+          var dots = Math.max(3, lv.difficulty);
+          for (var d = 0; d < dots; d++) {
+            Art2.fillEllipse(c, cardX + 82 + d * 12, y + 74, 4, 4, d < lv.difficulty ? hard ? "#FF5A45" : C.orange : "rgba(95,72,53,0.16)");
           }
           if (cleared) {
-            Art2.drawText(c, "\u5DF2\u901A\u5173", cardX + 134, y + 79, 10, C.green, "left", "800");
+            Art2.drawText(c, "\u5DF2\u901A\u5173", cardX + 86 + dots * 12, y + 74, 10, hard ? "#7FE0B0" : C.green, "left", "800");
           }
           var reward = Config3.getDog(lv.reward);
-          Art2.drawDog(c, lv.reward, cardX + cardW - 66, y + 80, 62, 0.02, unlocked ? 1 : 0.28);
-          Art2.drawText(c, "\u5956\u52B1 \xB7 " + reward.name, cardX + cardW - 66, y + 119, 9.5, C.inkSoft, "center", "700");
+          Art2.drawDog(c, lv.reward, cardX + cardW - 62, y + 62, 64, 0.02, unlocked ? 1 : 0.28);
+          Art2.drawText(c, "\u5956\u52B1 \xB7 " + reward.name, cardX + cardW - 62, y + 104, 9.5, inkSoft, "center", "700");
           if (cleared) {
             var stars = Math.max(1, Math.min(3, state.save.best[lv.id] ? state.save.best[lv.id].stars : 1));
             for (var s = 0; s < 3; s++) {
@@ -26521,8 +26712,8 @@
         }
         var by = H - L.safeBottom - 62;
         Art2.drawPaw(c, W / 2 - 78, by - 26, 10, "rgba(243,140,78,0.6)", 0);
-        Art2.drawText(c, "\u5DF2\u89E3\u9501 " + Math.min(state.save.unlocked, 3) + " / 3 \u5173 \xB7 \u56FE\u9274 " + state.save.seen.length + " / 11", W / 2 + 6, by - 26, 10, "rgba(86,58,39,0.62)", "center", "700");
-        Art2.drawButton(c, W / 2 - 112, by, 224, 46, "\u6253\u5F00\u72D7\u72D7\u56FE\u9274", { variant: "secondary", fontSize: 15 });
+        Art2.drawText(c, "\u5DF2\u89E3\u9501 " + Math.min(state.save.unlocked, Config3.MAIN_LEVELS) + " / " + Config3.MAIN_LEVELS + " \u5173 \xB7 \u56FE\u9274 " + seenCount(state) + " / " + Config3.DOG_TYPES.length, W / 2 + 6, by - 26, 10, "rgba(86,58,39,0.62)", "center", "700");
+        Art2.drawButton(c, W / 2 - 112, by, 224, 46, "\u6253\u5F00\u840C\u5BA0\u56FE\u9274", { variant: "secondary", fontSize: 15 });
         hit(state, W / 2 - 112, by, 224, 46, "openCollection");
       }
       function drawCollection(c, state, L, t) {
@@ -26531,12 +26722,12 @@
         Art2.drawBackground(c, W, H, t, "sports", true);
         Art2.drawGlassButton(c, 36, L.safeTop + 34, 21, "back", C.ink, { iconSize: 22 });
         hitCircle(state, 36, L.safeTop + 34, 27, "home");
-        drawTitle(c, "\u72D7\u72D7\u56FE\u9274", W / 2, L.safeTop + 49, 34);
-        Art2.drawText(c, "\u5DF2\u9047\u89C1 " + state.save.seen.length + " / 11 \u4F4D\u72D7\u72D7\u670B\u53CB", W / 2, L.safeTop + 81, 11, "rgba(86,58,39,0.65)", "center", "700");
-        var cols = 3;
-        var gap = 9;
+        drawTitle(c, "\u840C\u5BA0\u56FE\u9274", W / 2, L.safeTop + 49, 34);
+        Art2.drawText(c, "\u5DF2\u9047\u89C1 " + seenCount(state) + " / " + Config3.DOG_TYPES.length + " \u4F4D\u840C\u5BA0\u670B\u53CB", W / 2, L.safeTop + 81, 11, "rgba(86,58,39,0.65)", "center", "700");
+        var cols = 4;
+        var gap = 8;
         var cardW = (W - 44 - gap * (cols - 1)) / cols;
-        var cardH = 116;
+        var cardH = 98;
         var y0 = L.safeTop + 99;
         var rewards = {};
         Config3.LEVELS.forEach(function(lv) {
@@ -26557,34 +26748,34 @@
           Art2.fillRound(c, x, y, cardW, cardH, 18, seen ? "#FFF9EB" : "rgba(255,249,235,0.62)");
           Art2.clearShadow(c);
           Art2.strokeRound(c, x + 1, y + 1, cardW - 2, cardH - 2, 17, "rgba(132,91,53,0.13)", 1.2);
-          Art2.drawDog(c, type.id, x + cardW / 2, y + 47, 66, 0, seen ? 1 : 0.12);
+          Art2.drawDog(c, type.id, x + cardW / 2, y + 40, 60, 0, seen ? 1 : 0.12);
           if (!seen) {
-            Art2.drawIcon(c, "lock", x + cardW / 2, y + 48, 26, "rgba(86,66,48,0.38)");
-            Art2.drawText(c, "???", x + cardW / 2, y + 88, 13, "rgba(86,66,48,0.52)", "center", "800");
+            Art2.drawIcon(c, "lock", x + cardW / 2, y + 41, 22, "rgba(86,66,48,0.38)");
+            Art2.drawText(c, "???", x + cardW / 2, y + 79, 12, "rgba(86,66,48,0.52)", "center", "800");
           } else {
-            Art2.drawText(c, type.name, x + cardW / 2, y + 88, 15, C.ink, "center", "900");
-            Art2.drawText(c, "\u7B2C " + (i + 1) + " \u4F4D", x + cardW / 2, y + 103, 8.5, C.inkSoft, "center", "600");
+            Art2.drawText(c, type.name, x + cardW / 2, y + 77, type.name.length > 3 ? 11 : 13, C.ink, "center", "900");
+            Art2.drawText(c, "\u7B2C " + (i + 1) + " \u4F4D", x + cardW / 2, y + 90, 8, C.inkSoft, "center", "600");
           }
           if (rewards[type.id] && state.save.cleared.indexOf(rewards[type.id]) >= 0) {
             Art2.drawStar(c, x + cardW - 14, y + 14, 8, C.yellow, 0.2);
           }
           if (type.final && seen) {
-            drawCrown(c, x + cardW / 2, y + 13, 0.32, "#FFD45C", "#9A6226");
+            drawCrown(c, x + cardW / 2, y + 10, 0.28, "#FFD45C", "#9A6226");
           }
         }
-        var seenCount = Math.min(totalCards, state.save.seen.length);
+        var seenN = Math.min(totalCards, seenCount(state));
         var panelY = y0 + Math.ceil(totalCards / cols) * (cardH + gap) + 6;
         Art2.fillRound(c, 22, panelY, W - 44, 66, 18, "rgba(255,249,235,0.82)");
         Art2.drawPaw(c, 40, panelY + 20, 11, C.orange, -0.2);
         Art2.drawText(c, "\u56FE\u9274\u6536\u96C6\u8FDB\u5EA6", 52, panelY + 20, 11, C.ink, "left", "800");
-        Art2.drawText(c, seenCount + " / " + totalCards, W - 40, panelY + 20, 11, C.inkSoft, "right", "800");
+        Art2.drawText(c, seenN + " / " + totalCards, W - 40, panelY + 20, 11, C.inkSoft, "right", "800");
         Art2.fillRound(c, 40, panelY + 32, W - 80, 12, 6, "rgba(120,86,52,0.18)");
-        if (seenCount > 0) {
-          Art2.fillRound(c, 40, panelY + 32, Math.max(12, (W - 80) * seenCount / totalCards), 12, 6, C.orange);
+        if (seenN > 0) {
+          Art2.fillRound(c, 40, panelY + 32, Math.max(12, (W - 80) * seenN / totalCards), 12, 6, C.orange);
         }
-        var remainCards = Math.max(0, totalCards - seenCount);
+        var remainCards = Math.max(0, totalCards - seenN);
         Art2.drawText(c, remainCards > 0 ? "\u8FD8\u5DEE " + remainCards + " \u4F4D\u670B\u53CB\uFF0C\u96C6\u9F50\u540E\u7ED9\u85AF\u6761\u6234\u4E0A\u7687\u51A0" : "\u5168\u90E8\u96C6\u9F50\uFF01\u85AF\u6761\u5DF2\u7ECF\u6234\u4E0A\u7687\u51A0", W / 2, panelY + 55, 9.2, "rgba(86,58,39,0.7)", "center", "700");
-        Art2.drawText(c, "\u7EC8\u6781\u76EE\u6807\uFF1A\u5728\u300C\u5BFB\u627E\u85AF\u6761\u300D\u4E2D\u6293\u5230\u5979", W / 2, H - L.safeBottom - 27, 10.5, "rgba(72,53,38,0.66)", "center", "700");
+        Art2.drawText(c, "\u9690\u85CF\u5173\u300C\u54E5\u65AF\u62C9\u5DE2\u7A74\u300D\uFF1A\u636E\u8BF4\u6CA1\u4EBA\u901A\u5173\u8FC7", W / 2, H - L.safeBottom - 27, 10.5, "rgba(72,53,38,0.66)", "center", "700");
       }
       function drawGameHud(c, state, L, t) {
         var W = L.W;
@@ -26602,8 +26793,9 @@
           c.fillRect(0, 0, W, L.H);
         }
         Art2.fillRound(c, 14, hudTop, 120, 38, 19, "rgba(255,252,241,0.92)");
-        Art2.drawText(c, "\u7B2C " + lv.id + " \u5173", 27, hudCY, 12, C.ink, "left", "800");
+        Art2.drawText(c, lv.hard ? "\u5730\u72F1" : "\u7B2C " + lv.id + " \u5173", 27, hudCY, 12, lv.hard ? C.red : C.ink, "left", "800");
         Art2.drawText(c, lv.name, 94, hudCY, 9, C.inkSoft, "center", "700");
+        hit(state, 14, hudTop, 120, 38, "chipTap");
         var timeUrgent = state.timeLeft <= 60;
         var pulse = 1 + (timeUrgent ? Math.sin(t * 8) * 0.025 : 0);
         c.save();
@@ -26718,7 +26910,7 @@
         Art2.fillRound(c, L.W / 2 - 108, y - 21, 216, 42, 21, "rgba(55,36,22,0.94)");
         Art2.clearShadow(c);
         Art2.drawPaw(c, L.W / 2 - 86, y, 12, "#FFD06A", 0);
-        Art2.drawTextOutline(c, "\u7B2C " + state.level.id + " \u5173 \xB7 " + state.level.name, L.W / 2 + 6, y, 14.5, "#FFF6E0", "rgba(30,18,10,0.35)", 2.4, "center", "900");
+        Art2.drawTextOutline(c, (state.level.hard ? "\u5730\u72F1\u96BE\u5EA6" : "\u7B2C " + state.level.id + " \u5173") + " \xB7 " + state.level.name, L.W / 2 + 6, y, 14.5, "#FFF6E0", "rgba(30,18,10,0.35)", 2.4, "center", "900");
         c.restore();
       }
       function drawFx(c, state, L, t) {
@@ -26828,9 +27020,9 @@
           Art2.drawPaw(c, x + cw - 27, y + 128, 15, "rgba(86,174,120,0.25)", 0.3);
           Art2.drawDog(c, rewardId, W / 2, y + 92, 132, 0.02, 1);
           if (res.finalWin) drawCrown(c, W / 2, y + 34, 0.72, "#FFD45C", "#9A6226");
-          Art2.drawText(c, res.finalWin ? "\u85AF\u6761\uFF0C\u6293\u5230\u4F60\u4E86\uFF01" : "\u6293\u5230\u4E00\u53EA\u5927\u72D7\uFF01", W / 2, y + 174, res.finalWin ? 27 : 25, C.ink, "center", "900");
+          Art2.drawText(c, res.hard ? "\u54E5\u65AF\u62C9\uFF0C\u88AB\u4F60\u6293\u5230\u4E86\uFF01" : res.finalWin ? "\u85AF\u6761\uFF0C\u6293\u5230\u4F60\u4E86\uFF01" : "\u6293\u5230\u4E00\u53EA\u5927\u72D7\uFF01", W / 2, y + 174, res.finalWin ? 26 : 25, C.ink, "center", "900");
           var seenTotal = Math.min(Config3.DOG_TYPES.length, state.save && state.save.seen ? state.save.seen.length : 0);
-          var winSub = res.finalWin ? seenTotal >= Config3.DOG_TYPES.length ? "\u767D\u8272\u9A6C\u5C14\u6D4E\u65AF \xB7 \u5168\u56FE\u9274\u8FBE\u6210" : "\u7EC8\u6781\u76EE\u6807\u8FBE\u6210 \xB7 \u56FE\u9274 " + seenTotal + "/" + Config3.DOG_TYPES.length : "\u65B0\u4F19\u4F34\u300C" + reward.name + "\u300D\u52A0\u5165\u4E86\u56FE\u9274";
+          var winSub = res.hard ? "\u5730\u72F1\u96BE\u5EA6\u901A\u5173 \xB7 \u4F60\u662F\u4F20\u8BF4\u4E2D\u7684\u6293\u5BA0\u5927\u5E08" : res.finalWin ? seenTotal >= Config3.DOG_TYPES.length ? "\u767D\u8272\u9A6C\u5C14\u6D4E\u65AF \xB7 \u5168\u56FE\u9274\u8FBE\u6210" : "\u7EC8\u6781\u76EE\u6807\u8FBE\u6210 \xB7 \u56FE\u9274 " + seenTotal + "/" + Config3.DOG_TYPES.length : "\u65B0\u4F19\u4F34\u300C" + reward.name + "\u300D\u52A0\u5165\u4E86\u56FE\u9274";
           Art2.drawText(c, winSub, W / 2, y + 201, 11, C.inkSoft, "center", "700");
           for (var s = 0; s < 3; s++) {
             Art2.drawStar(c, W / 2 - 30 + s * 30, y + 228, 12, s < res.stars ? "#FFC94E" : "rgba(95,72,53,0.15)", 0);
@@ -26854,11 +27046,12 @@
           for (var di = 0; di < Config3.DOG_TYPES.length; di++) if (Config3.DOG_TYPES[di].id === rewardId) dexIndex = di + 1;
           Art2.drawText(c, "\u5DF2\u6536\u5F55\uFF1A" + reward.name + "  \xB7  \u56FE\u9274\u7B2C " + dexIndex + " \u4F4D", x + 52, y + 340, 9.6, C.ink, "left", "700");
           var nextLabel;
-          if (res.finalWin) nextLabel = "\u67E5\u770B\u5B8C\u6574\u56FE\u9274";
+          if (res.hard) nextLabel = "\u67E5\u770B\u5B8C\u6574\u56FE\u9274";
+          else if (res.finalWin) nextLabel = "\u6311\u6218\u5730\u72F1\u96BE\u5EA6";
           else if (res.hasChallenge) nextLabel = "\u6311\u6218\u4E0B\u4E00\u5173";
           else nextLabel = "\u518D\u6293\u4E00\u6B21";
           Art2.drawButton(c, x + 26, y + ch - 96, cw - 52, 44, nextLabel, { fontSize: 16 });
-          hit(state, x + 26, y + ch - 96, cw - 52, 44, res.finalWin ? "openCollection" : res.hasChallenge ? "nextLevel" : "restart");
+          hit(state, x + 26, y + ch - 96, cw - 52, 44, res.hard ? "openCollection" : res.finalWin ? "start:" + (Config3.LEVELS.length - 1) : res.hasChallenge ? "nextLevel" : "restart");
           Art2.fillRound(c, x + 24, y + ch - 42, 100, 24, 12, "rgba(255,251,240,0.92)");
           Art2.strokeRound(c, x + 24.5, y + ch - 41.5, 99, 23, 11.5, "rgba(150,105,66,0.3)", 1);
           Art2.drawText(c, "\u5206\u4EAB\u6218\u7EE9", x + 74, y + ch - 30, 10.5, C.inkSoft, "center", "700");
@@ -26870,7 +27063,7 @@
         } else {
           Art2.drawDog(c, "pug", W / 2, y + 86, 112, -0.06, 1);
           Art2.fillEllipse(c, W / 2 + 29, y + 92, 6, 10, "rgba(120,193,224,0.65)", 0.25);
-          Art2.drawText(c, "\u5927\u72D7\u8DD1\u6389\u4E86\u2026", W / 2, y + 158, 25, C.ink, "center", "900");
+          Art2.drawText(c, state.level && state.level.hard ? "\u54E5\u65AF\u62C9\u8DD1\u6389\u4E86\u2026" : "\u5927\u72D7\u8DD1\u6389\u4E86\u2026", W / 2, y + 158, 25, C.ink, "center", "900");
           Art2.drawText(c, res.reason, W / 2, y + 184, 11, C.inkSoft, "center", "700");
           Art2.fillRound(c, x + 32, y + 205, cw - 64, 50, 16, "rgba(229,91,79,0.08)");
           Art2.drawText(c, "\u5C0F\u63D0\u793A\uFF1A\u5148\u70B9\u6700\u4E0A\u5C42\u6321\u8DEF\u7684\u5927\u72D7\uFF0C\u518D\u627E\u540C\u6B3E", W / 2, y + 224, 9.2, "#A14D40", "center", "700");
@@ -27029,7 +27222,479 @@
     }
   });
 
+  // src/dog-models.js
+  function base(key, detail, make) {
+    const k = key + ":" + detail;
+    if (!baseGeos[k]) baseGeos[k] = make(detail);
+    return baseGeos[k];
+  }
+  function sphereGeo(detail) {
+    return base("sphere", detail, (d) => d === "high" ? new SphereGeometry(1, 28, 20) : d === "mid" ? new SphereGeometry(1, 16, 11) : new SphereGeometry(1, 10, 7));
+  }
+  function smallSphereGeo(detail) {
+    return base("ssphere", detail, (d) => d === "high" ? new SphereGeometry(1, 16, 12) : d === "mid" ? new SphereGeometry(1, 8, 6) : new SphereGeometry(1, 6, 4));
+  }
+  function addEyes(P, type, opts) {
+    opts = opts || {};
+    const y = opts.y || 0.74;
+    const x = opts.x || 0.185;
+    const z = opts.z || 0.41;
+    for (let s = -1; s <= 1; s += 2) {
+      if (opts.iris) {
+        P.dot(opts.iris, [s * x, y, z], [0.085, 0.1, 0.055], null, true);
+        P.dot(OUTLINE_EYE, [s * x, y, z + 0.035], opts.slit ? [0.024, 0.075, 0.03] : [0.05, 0.06, 0.03], null, true);
+      } else {
+        P.dot(OUTLINE_EYE, [s * x, y, z], [0.078, 0.094, 0.058], null, true);
+      }
+      P.dot(WHITE, [s * (x - 0.025), y + 0.035, z + 0.05], [0.026, 0.029, 0.014], null, true);
+      P.dot(WHITE, [s * (x + 0.02), y - 0.03, z + 0.05], [0.012, 0.012, 8e-3], null, true);
+    }
+  }
+  function addBlush(P) {
+    for (let s = -1; s <= 1; s += 2) {
+      P.dot(BLUSH, [s * 0.36, 0.585, 0.355], [0.085, 0.045, 0.025], [0, s * 0.5, 0]);
+    }
+  }
+  function addCollar(P, type, opts) {
+    opts = opts || {};
+    P.torus(type.accent, 0.36, 0.05, Math.PI * 2, [0, 0.36, 0.04], [Math.PI / 2 + 0.18, 0, 0]);
+    if (opts.bell) {
+      P.dot("#F5C542", [0, 0.27, 0.41], 0.072, null, true);
+      P.dot("#8A6A1E", [0, 0.245, 0.475], [0.03, 0.012, 0.012], null, true);
+    } else {
+      P.disc("#FFD45C", 0.065, [0, 0.25, 0.415], [-0.2, 0, 0], true);
+    }
+  }
+  function buildDog(P, type) {
+    const fur = type.fur;
+    const light = type.light;
+    const dark = type.dark;
+    const accent = type.accent;
+    P.sphere(fur, [0, 0.3, -0.06], [0.5, 0.38, 0.5]);
+    P.sphere(light, [0, 0.34, 0.2], [0.3, 0.3, 0.24]);
+    for (let s = -1; s <= 1; s += 2) {
+      P.sphere(fur, [s * 0.3, 0.2, -0.14], [0.2, 0.19, 0.26]);
+      P.sphere(light, [s * 0.33, 0.06, 0.07], [0.12, 0.07, 0.15]);
+      P.sphere(fur, [s * 0.18, 0.19, 0.24], [0.11, 0.2, 0.11]);
+      P.sphere(light, [s * 0.18, 0.06, 0.32], [0.13, 0.085, 0.15]);
+      for (let k = -1; k <= 1; k++) {
+        P.dot(dark, [s * 0.18 + k * 0.045, 0.06, 0.465], [8e-3, 0.035, 8e-3]);
+      }
+    }
+    if (type.tail === "curl") {
+      P.torus(fur, 0.15, 0.075, Math.PI * 1.5, [0, 0.52, -0.5], [0, Math.PI / 2, 0.4]);
+      P.dot(light, [0, 0.62, -0.42], 0.08);
+    } else if (type.tail === "fluffy") {
+      P.sphere(fur, [0, 0.48, -0.58], [0.13, 0.26, 0.13], [-0.7, 0, 0]);
+      P.sphere(light, [0, 0.66, -0.68], [0.1, 0.12, 0.1]);
+    } else if (type.tail === "stub") {
+      P.sphere(fur, [0, 0.36, -0.55], [0.08, 0.08, 0.09]);
+    } else {
+      P.sphere(fur, [0, 0.42, -0.58], [0.07, 0.24, 0.07], [-0.9, 0, 0]);
+    }
+    P.sphere(fur, [0, 0.66, 0.03], [0.52, 0.46, 0.46]);
+    P.sphere(light, [0, 0.53, 0.37], [0.31, 0.21, 0.24]);
+    P.sphere("#2C2524", [0, 0.59, 0.575], [0.1, 0.072, 0.075], null, true);
+    P.dot(WHITE, [-0.03, 0.62, 0.64], [0.025, 0.015, 0.01], null, true);
+    for (let s = -1; s <= 1; s += 2) {
+      P.torus("#4A3430", 0.04, 9e-3, Math.PI, [s * 0.04, 0.5, 0.585], [0, 0, Math.PI]);
+    }
+    if (type.tongue) {
+      P.sphere("#EE7B80", [0, 0.455, 0.56], [0.06, 0.05, 0.035]);
+    }
+    addEyes(P, type);
+    for (let s = -1; s <= 1; s += 2) {
+      P.dot(dark, [s * 0.19, 0.86, 0.38], [0.09, 0.032, 0.025], [0, 0, s * 0.16]);
+    }
+    for (let s = -1; s <= 1; s += 2) {
+      let ep;
+      let es;
+      let er;
+      if (type.ear === "floppy") {
+        ep = [s * 0.44, 0.56, 0];
+        es = [0.17, 0.34, 0.12];
+        er = [-0.08, 0, s * 0.42];
+      } else if (type.ear === "big") {
+        ep = [s * 0.4, 0.95, -0.01];
+        es = [0.23, 0.42, 0.15];
+        er = [0, 0, s * 0.28];
+      } else if (type.ear === "fold") {
+        ep = [s * 0.37, 0.91, 0.01];
+        es = [0.2, 0.19, 0.13];
+        er = [0, 0, s * 0.55];
+      } else {
+        ep = [s * 0.35, 0.99, -0.01];
+        es = [0.17, 0.34, 0.12];
+        er = [-0.16, 0, s * 0.3];
+      }
+      P.sphere(type.ear === "floppy" ? dark : fur, ep, es, er);
+      if (type.ear !== "fold" && type.ear !== "floppy") {
+        P.sphere("#F2B7AE", [ep[0] * 0.97, ep[1], ep[2] + 0.08], [es[0] * 0.55, es[1] * 0.62, es[2] * 0.5], er);
+      }
+    }
+    dogPattern(P, type);
+    dogAccessory(P, type);
+    addBlush(P);
+  }
+  function dogPattern(P, type) {
+    const light = type.light;
+    const dark = type.dark;
+    const accent = type.accent;
+    const patch = (x, y, z, sx, sy, sz, color, rz, rx) => P.sphere(color, [x, y, z], [sx, sy, sz], [rx || 0, 0, rz || 0]);
+    if (type.pattern === "husky") {
+      patch(0, 0.55, 0.43, 0.28, 0.25, 0.1, light);
+      patch(0, 0.82, 0.34, 0.12, 0.27, 0.08, light);
+      patch(-0.19, 0.79, 0.41, 0.095, 0.06, 0.04, light, -0.2);
+      patch(0.19, 0.79, 0.41, 0.095, 0.06, 0.04, light, 0.2);
+    } else if (type.pattern === "corgi") {
+      patch(0, 0.8, 0.39, 0.1, 0.29, 0.07, light);
+      patch(0, 0.54, 0.46, 0.24, 0.19, 0.08, light);
+    } else if (type.pattern === "shiba") {
+      patch(0, 0.56, 0.44, 0.25, 0.19, 0.07, light);
+      patch(-0.19, 0.84, 0.42, 0.058, 0.035, 0.02, light, -0.2);
+      patch(0.19, 0.84, 0.42, 0.058, 0.035, 0.02, light, 0.2);
+    } else if (type.pattern === "spots") {
+      patch(-0.3, 0.83, 0.24, 0.11, 0.1, 0.07, dark, -0.4);
+      patch(0.31, 0.62, 0.24, 0.09, 0.12, 0.07, dark, 0.3);
+      patch(0.12, 0.44, 0.43, 0.07, 0.06, 0.03, dark);
+      patch(-0.05, 0.95, 0.27, 0.07, 0.06, 0.04, dark);
+      patch(0.3, 0.32, 0.2, 0.09, 0.08, 0.06, dark, 0.3);
+      patch(-0.26, 0.24, 0.12, 0.08, 0.07, 0.07, dark);
+      patch(0.1, 0.4, -0.45, 0.1, 0.09, 0.07, dark);
+    } else if (type.pattern === "curly") {
+      for (let i = 0; i < 12; i++) {
+        const a = i * 0.9 + 0.5;
+        patch(Math.cos(a) * 0.4, 0.7 + Math.sin(a) * 0.27, Math.sin(a) * 0.16 + 0.24, 0.12, 0.11, 0.09, light, a);
+      }
+      for (let i = 0; i < 6; i++) {
+        const a = i * 1.05;
+        patch(Math.cos(a) * 0.4, 0.3 + Math.sin(a) * 0.12, -0.1 + Math.sin(a * 1.7) * 0.25, 0.14, 0.13, 0.13, light, a);
+      }
+    } else if (type.pattern === "tanbrow") {
+      patch(-0.19, 0.85, 0.41, 0.085, 0.04, 0.025, light, -0.2);
+      patch(0.19, 0.85, 0.41, 0.085, 0.04, 0.025, light, 0.2);
+      patch(-0.36, 0.6, 0.28, 0.11, 0.09, 0.05, light, -0.2);
+      patch(0.36, 0.6, 0.28, 0.11, 0.09, 0.05, light, 0.2);
+    } else if (type.pattern === "bulldog") {
+      patch(0, 0.52, 0.44, 0.35, 0.22, 0.12, light);
+      patch(-0.27, 0.6, 0.35, 0.12, 0.16, 0.07, light, -0.2);
+      patch(0.27, 0.6, 0.35, 0.12, 0.16, 0.07, light, 0.2);
+      for (let i = 0; i < 2; i++) patch(0, 0.92 + i * 0.05, 0.3, 0.2 - i * 0.04, 0.012, 0.03, dark);
+    } else if (type.pattern === "pug") {
+      patch(0, 0.57, 0.4, 0.31, 0.13, 0.06, dark);
+      patch(0, 0.54, 0.47, 0.24, 0.15, 0.085, light);
+      for (let i = 0; i < 2; i++) patch(0, 0.9 + i * 0.05, 0.33, 0.18 - i * 0.04, 0.012, 0.03, dark);
+    } else if (type.pattern === "maltese") {
+      patch(0, 1.12, 0.02, 0.14, 0.12, 0.1, light);
+      patch(-0.08, 1.1, 0.03, 0.09, 0.08, 0.07, light);
+      patch(0.08, 1.1, 0.03, 0.09, 0.08, 0.07, light);
+      P.sphere(accent, [-0.13, 1.14, 0.1], [0.09, 0.06, 0.04], [0, 0.4, -0.4]);
+      P.sphere(accent, [0.13, 1.14, 0.1], [0.09, 0.06, 0.04], [0, -0.4, 0.4]);
+      P.dot("#F8CBD8", [0, 1.14, 0.13], [0.035, 0.04, 0.03], null, true);
+      for (let s = -1; s <= 1; s += 2) {
+        patch(s * 0.3, 0.25, 0.08, 0.2, 0.28, 0.25, light);
+      }
+    } else if (type.pattern === "fluff") {
+      for (let i = 0; i < 8; i++) {
+        const a = i / 8 * Math.PI * 2;
+        patch(Math.cos(a) * 0.46, 0.62 + Math.sin(a) * 0.36, 0.02, 0.13, 0.13, 0.12, light, a);
+      }
+    }
+  }
+  function dogAccessory(P, type) {
+    const accent = type.accent;
+    const dark = type.dark;
+    if (type.accessory === "collar") {
+      addCollar(P, type);
+    } else if (type.accessory === "bandana") {
+      P.cone(accent, 0.3, 0.3, [0, 0.27, 0.32], [Math.PI + 0.25, 0, 0]);
+      P.dot(accent, [0, 0.37, 0.38], [0.08, 0.07, 0.06]);
+      P.dot(WHITE, [-0.1, 0.27, 0.43], 0.02);
+      P.dot(WHITE, [0.08, 0.22, 0.42], 0.018);
+    } else if (type.accessory === "goggles") {
+      P.torus(dark, 0.47, 0.03, Math.PI, [0, 0.94, 0.02], [Math.PI / 2, 0, 0]);
+      for (let s = -1; s <= 1; s += 2) {
+        P.torus(dark, 0.1, 0.025, Math.PI * 2, [s * 0.16, 0.96, 0.37], [0, 0, 0]);
+        P.disc(accent, 0.085, [s * 0.16, 0.96, 0.372], [0, 0, 0], true);
+      }
+    } else if (type.accessory === "bow" && type.id !== "maltese") {
+      P.sphere(accent, [0.47, 0.98, 0.05], [0.12, 0.07, 0.05], [0, 0, 0.35]);
+      P.sphere(accent, [0.6, 0.98, 0.05], [0.12, 0.07, 0.05], [0, 0, -0.35]);
+      P.dot("#FFE6EE", [0.535, 0.98, 0.06], [0.045, 0.05, 0.04], null, true);
+    }
+  }
+  function buildCat(P, type) {
+    const fur = type.fur;
+    const light = type.light;
+    const dark = type.dark;
+    const points = type.pattern === "points";
+    P.sphere(fur, [0, 0.3, -0.06], [0.44, 0.36, 0.46]);
+    P.sphere(light, [0, 0.32, 0.2], [0.26, 0.28, 0.22]);
+    for (let s = -1; s <= 1; s += 2) {
+      P.sphere(fur, [s * 0.27, 0.19, -0.12], [0.18, 0.18, 0.24]);
+      P.sphere(points ? dark : fur, [s * 0.15, 0.18, 0.25], [0.09, 0.19, 0.09]);
+      P.sphere(points ? dark : light, [s * 0.15, 0.05, 0.31], [0.1, 0.065, 0.12]);
+      P.dot("#F2A9AE", [s * 0.15, 0.03, 0.41], [0.03, 0.02, 0.015]);
+    }
+    P.torus(points ? dark : fur, 0.32, 0.06, Math.PI * 1.15, [0.08, 0.12, -0.1], [Math.PI / 2, 0, -1.2]);
+    P.sphere(points ? dark : type.pattern === "tabby" ? dark : fur, [0.38, 0.12, 0.22], [0.07, 0.07, 0.09]);
+    P.sphere(fur, [0, 0.66, 0.03], [0.5, 0.42, 0.44]);
+    for (let s = -1; s <= 1; s += 2) {
+      P.sphere(fur, [s * 0.34, 0.56, 0.12], [0.2, 0.18, 0.22]);
+    }
+    if (points) P.sphere(dark, [0, 0.6, 0.3], [0.3, 0.26, 0.18]);
+    P.sphere(light, [-0.07, 0.55, 0.37], [0.11, 0.09, 0.1]);
+    P.sphere(light, [0.07, 0.55, 0.37], [0.11, 0.09, 0.1]);
+    P.dot(light, [0, 0.5, 0.36], [0.07, 0.05, 0.06]);
+    P.cone(PINK, 0.04, 0.04, [0, 0.6, 0.465], [Math.PI + 0.5, 0, 0], true);
+    for (let s = -1; s <= 1; s += 2) {
+      P.torus("#4A3430", 0.032, 8e-3, Math.PI, [s * 0.032, 0.54, 0.462], [0, 0, Math.PI]);
+      for (let k = -1; k <= 1; k++) {
+        P.cylinder(type.whisker || "#FFFFFF", 6e-3, 0.26, [s * 0.27, 0.56 + k * 0.03, 0.38], [0, 0, Math.PI / 2 + k * 0.18 * s]);
+      }
+    }
+    addEyes(P, type, { y: 0.71, x: 0.19, z: 0.39, iris: type.eye || "#8BC34A", slit: true });
+    for (let s = -1; s <= 1; s += 2) {
+      P.cone(points ? dark : fur, 0.15, 0.3, [s * 0.3, 1, 0], [0, 0, -s * 0.38]);
+      P.cone("#F3B4B4", 0.09, 0.2, [s * 0.29, 0.98, 0.07], [0.15, 0, -s * 0.38]);
+    }
+    if (type.pattern === "tabby") {
+      for (let i = -1; i <= 1; i++) {
+        P.sphere(dark, [i * 0.09, 0.95, 0.3], [0.025, 0.11, 0.05], [0.5, 0, i * 0.25]);
+      }
+      for (let s = -1; s <= 1; s += 2) {
+        for (let k = 0; k < 2; k++) {
+          P.sphere(dark, [s * 0.44, 0.66 - k * 0.09, 0.15], [0.03, 0.02, 0.1], [0, s * 0.6, 0]);
+        }
+        for (let k = 0; k < 3; k++) {
+          P.sphere(dark, [s * 0.41, 0.42 - k * 0.11, -0.1 + k * 0.03], [0.04, 0.025, 0.2], [0, s * 0.3, 0]);
+        }
+      }
+    }
+    if (type.accessory === "bell") addCollar(P, type, { bell: true });
+    else if (type.accessory === "collar") addCollar(P, type);
+    else if (type.accessory === "bow") {
+      P.sphere(type.accent, [-0.28, 0.98, 0.15], [0.1, 0.06, 0.045], [0, 0, 0.35]);
+      P.sphere(type.accent, [-0.16, 0.98, 0.17], [0.1, 0.06, 0.045], [0, 0, -0.35]);
+      P.dot("#FFE6EE", [-0.22, 0.98, 0.18], 0.04, null, true);
+    }
+    addBlush(P);
+  }
+  function buildGodzilla(P, type) {
+    const fur = type.fur;
+    const light = type.light;
+    const dark = type.dark;
+    const spike = type.accent;
+    P.sphere(fur, [0, 0.32, -0.05], [0.48, 0.42, 0.48]);
+    P.sphere(light, [0, 0.34, 0.24], [0.3, 0.34, 0.2]);
+    for (let i = 0; i < 3; i++) {
+      P.sphere(dark, [0, 0.22 + i * 0.12, 0.43 - Math.abs(i - 1) * 0.02], [0.22 - Math.abs(i - 1) * 0.03, 8e-3, 0.03]);
+    }
+    for (let s = -1; s <= 1; s += 2) {
+      P.sphere(fur, [s * 0.28, 0.14, 0.05], [0.18, 0.17, 0.22]);
+      for (let k = -1; k <= 1; k++) {
+        P.cone(WHITE, 0.025, 0.06, [s * 0.28 + k * 0.06, 0.03, 0.27], [Math.PI / 2, 0, 0], true);
+      }
+      P.sphere(fur, [s * 0.38, 0.46, 0.2], [0.08, 0.14, 0.08], [0.6, 0, s * 0.7]);
+      P.cone(WHITE, 0.02, 0.05, [s * 0.47, 0.57, 0.27], [0.4, 0, -s * 0.6], true);
+    }
+    const tail = [[0, 0.24, -0.5, 0.2], [0.06, 0.18, -0.75, 0.15], [0.14, 0.14, -0.95, 0.11], [0.24, 0.11, -1.1, 0.075]];
+    for (let i = 0; i < tail.length; i++) {
+      const t = tail[i];
+      P.sphere(fur, [t[0], t[1], t[2]], [t[3], t[3] * 0.9, t[3] * 1.4]);
+    }
+    P.sphere(fur, [0, 0.72, 0.04], [0.42, 0.38, 0.4]);
+    P.sphere(fur, [0, 0.62, 0.32], [0.3, 0.2, 0.28]);
+    P.sphere(light, [0, 0.54, 0.36], [0.24, 0.1, 0.22]);
+    for (let s = -1; s <= 1; s += 2) {
+      P.dot(dark, [s * 0.08, 0.7, 0.58], [0.025, 0.015, 0.015]);
+    }
+    P.torus("#5A2E2A", 0.14, 0.018, Math.PI, [0, 0.6, 0.52], [0.25, 0, Math.PI]);
+    for (let k = -2; k <= 2; k++) {
+      P.cone(WHITE, 0.022, 0.05, [k * 0.055, 0.565 - Math.abs(k) * 8e-3, 0.555 - Math.abs(k) * 0.02], [Math.PI, 0, 0], true);
+    }
+    addEyes(P, type, { y: 0.84, x: 0.17, z: 0.36, iris: "#FFD54A", slit: true });
+    for (let s = -1; s <= 1; s += 2) {
+      P.sphere(dark, [s * 0.17, 0.95, 0.35], [0.1, 0.03, 0.03], [0, 0, -s * 0.35]);
+    }
+    const plates = [
+      [0, 1.1, -0.05, 0.1, 0.2],
+      [0, 1.02, -0.22, 0.12, 0.24],
+      [0, 0.82, -0.4, 0.13, 0.26],
+      [0, 0.6, -0.52, 0.12, 0.24],
+      [0.03, 0.42, -0.72, 0.1, 0.2],
+      [0.1, 0.32, -0.92, 0.08, 0.16],
+      [0.19, 0.25, -1.08, 0.06, 0.12]
+    ];
+    for (let i = 0; i < plates.length; i++) {
+      const p = plates[i];
+      P.cone(spike, p[3], p[4], [p[0], p[1], p[2]], [-0.5 - i * 0.12, 0, 0]);
+    }
+    addBlush(P);
+  }
+  function getAnimalGeometry(type, detail) {
+    const key = type.id + ":" + detail;
+    if (cache[key]) return cache[key];
+    const P = new PartList(detail);
+    if (type.kind === "cat") buildCat(P, type);
+    else if (type.kind === "monster") buildGodzilla(P, type);
+    else buildDog(P, type);
+    cache[key] = P.build();
+    return cache[key];
+  }
+  function getAnimalMaterials() {
+    if (sharedMaterials) return sharedMaterials;
+    sharedMaterials = [
+      new MeshStandardMaterial({ vertexColors: true, roughness: 0.68, metalness: 0, envMapIntensity: 0.7 }),
+      new MeshStandardMaterial({ vertexColors: true, roughness: 0.14, metalness: 0.05, envMapIntensity: 1.1 })
+    ];
+    return sharedMaterials;
+  }
+  var MODEL_CENTER_Y, BODY_RADIUS, baseGeos, tmpColor, tmpMatrix, tmpQuat, tmpEuler, tmpPos, tmpScale, PartList, OUTLINE_EYE, WHITE, PINK, BLUSH, cache, sharedMaterials;
+  var init_dog_models = __esm({
+    "src/dog-models.js"() {
+      init_three_module();
+      MODEL_CENTER_Y = 0.5;
+      BODY_RADIUS = 0.5;
+      baseGeos = {};
+      tmpColor = new Color();
+      tmpMatrix = new Matrix4();
+      tmpQuat = new Quaternion();
+      tmpEuler = new Euler();
+      tmpPos = new Vector3();
+      tmpScale = new Vector3();
+      PartList = class {
+        constructor(detail) {
+          this.detail = detail;
+          this.matte = [];
+          this.gloss = [];
+        }
+        /**
+         * opts: { p:[x,y,z], s:[x,y,z]|number, r:[x,y,z], gloss:bool }
+         */
+        add(geo, color, opts) {
+          opts = opts || {};
+          const g = geo.clone();
+          const p = opts.p || [0, 0, 0];
+          const s = opts.s == null ? [1, 1, 1] : typeof opts.s === "number" ? [opts.s, opts.s, opts.s] : opts.s;
+          const r = opts.r || [0, 0, 0];
+          tmpEuler.set(r[0], r[1], r[2], "XYZ");
+          tmpQuat.setFromEuler(tmpEuler);
+          tmpPos.set(p[0], p[1], p[2]);
+          tmpScale.set(s[0], s[1], s[2]);
+          tmpMatrix.compose(tmpPos, tmpQuat, tmpScale);
+          g.applyMatrix4(tmpMatrix);
+          tmpColor.set(color).convertSRGBToLinear();
+          const n = g.attributes.position.count;
+          const cols = new Float32Array(n * 3);
+          for (let i = 0; i < n; i++) {
+            cols[i * 3] = tmpColor.r;
+            cols[i * 3 + 1] = tmpColor.g;
+            cols[i * 3 + 2] = tmpColor.b;
+          }
+          g.setAttribute("color", new BufferAttribute(cols, 3));
+          (opts.gloss ? this.gloss : this.matte).push(g);
+          return g;
+        }
+        sphere(color, p, s, r, gloss) {
+          return this.add(sphereGeo(this.detail), color, { p, s, r, gloss });
+        }
+        dot(color, p, s, r, gloss) {
+          return this.add(smallSphereGeo(this.detail), color, { p, s, r, gloss });
+        }
+        cone(color, radius, height, p, r, gloss) {
+          const geo = base("cone", this.detail, (d) => new ConeGeometry(1, 1, d === "high" ? 20 : d === "mid" ? 10 : 6));
+          return this.add(geo, color, { p, s: [radius, height, radius], r, gloss });
+        }
+        torus(color, radius, tube, arc, p, r, gloss) {
+          const key = "torus-" + radius + "-" + tube + "-" + arc;
+          const geo = base(key, this.detail, (d) => new TorusGeometry(radius, tube, d === "high" ? 10 : d === "mid" ? 6 : 4, d === "high" ? 36 : d === "mid" ? 18 : 10, arc));
+          return this.add(geo, color, { p, r, gloss });
+        }
+        cylinder(color, radius, height, p, r, gloss) {
+          const geo = base("cyl", this.detail, (d) => new CylinderGeometry(1, 1, 1, d === "high" ? 10 : d === "mid" ? 7 : 4));
+          return this.add(geo, color, { p, s: [radius, height, radius], r, gloss });
+        }
+        disc(color, radius, p, r, gloss) {
+          const geo = base("disc", this.detail, (d) => new CircleGeometry(1, d === "high" ? 24 : d === "mid" ? 12 : 8));
+          return this.add(geo, color, { p, s: [radius, radius, radius], r, gloss });
+        }
+        build() {
+          const all = this.matte.concat(this.gloss);
+          let vCount = 0;
+          let iCount = 0;
+          for (let i = 0; i < all.length; i++) {
+            vCount += all[i].attributes.position.count;
+            iCount += all[i].index ? all[i].index.count : all[i].attributes.position.count;
+          }
+          const pos = new Float32Array(vCount * 3);
+          const nor = new Float32Array(vCount * 3);
+          const col = new Float32Array(vCount * 3);
+          const idx = vCount > 65535 ? new Uint32Array(iCount) : new Uint16Array(iCount);
+          let vo = 0;
+          let io = 0;
+          let matteIndexCount = 0;
+          for (let i = 0; i < all.length; i++) {
+            const g = all[i];
+            const n = g.attributes.position.count;
+            pos.set(g.attributes.position.array, vo * 3);
+            nor.set(g.attributes.normal.array, vo * 3);
+            col.set(g.attributes.color.array, vo * 3);
+            if (g.index) {
+              const src = g.index.array;
+              for (let k = 0; k < src.length; k++) idx[io + k] = src[k] + vo;
+              io += src.length;
+            } else {
+              for (let k = 0; k < n; k++) idx[io + k] = vo + k;
+              io += n;
+            }
+            vo += n;
+            if (i === this.matte.length - 1) matteIndexCount = io;
+            g.dispose();
+          }
+          if (this.matte.length === 0) matteIndexCount = 0;
+          const out = new BufferGeometry();
+          out.setAttribute("position", new BufferAttribute(pos, 3));
+          out.setAttribute("normal", new BufferAttribute(nor, 3));
+          out.setAttribute("color", new BufferAttribute(col, 3));
+          out.setIndex(new BufferAttribute(idx, 1));
+          out.addGroup(0, matteIndexCount, 0);
+          out.addGroup(matteIndexCount, iCount - matteIndexCount, 1);
+          out.translate(0, -MODEL_CENTER_Y, 0);
+          out.computeBoundingSphere();
+          out.computeBoundingBox();
+          return out;
+        }
+      };
+      OUTLINE_EYE = "#231B19";
+      WHITE = "#FFFFFF";
+      PINK = "#F59AA3";
+      BLUSH = "#F4A0A4";
+      cache = {};
+      sharedMaterials = null;
+    }
+  });
+
   // src/three-world.js
+  function easeOutBack(t) {
+    const c = 1.70158;
+    return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2);
+  }
+  function messyQuat(q) {
+    if (Math.random() < 0.5) {
+      tmpEuler2.set(-0.5 + (Math.random() - 0.5) * 0.9, (Math.random() - 0.5) * 2.2, (Math.random() - 0.5) * 1.4);
+      return q.setFromEuler(tmpEuler2);
+    }
+    return randomQuat(q);
+  }
+  function randomQuat(q) {
+    const u1 = Math.random();
+    const u2 = Math.random() * TAU;
+    const u3 = Math.random() * TAU;
+    const a = Math.sqrt(1 - u1);
+    const b = Math.sqrt(u1);
+    return q.set(a * Math.sin(u2), a * Math.cos(u2), b * Math.sin(u3), b * Math.cos(u3));
+  }
   function easeOutCubic(t) {
     return 1 - Math.pow(1 - t, 3);
   }
@@ -27047,15 +27712,6 @@
       emissiveIntensity: opts.emissiveIntensity || 0
     });
   }
-  function shiny(color) {
-    return new MeshPhysicalMaterial({
-      color: srgb(color),
-      roughness: 0.18,
-      metalness: 0.02,
-      clearcoat: 1,
-      clearcoatRoughness: 0.12
-    });
-  }
   function canvasTexture(source, width, height, draw) {
     const c = source.createOffscreenCanvas(width, height);
     c.width = width;
@@ -27067,13 +27723,24 @@
     tex.needsUpdate = true;
     return tex;
   }
-  var import_config, TAU, tmpV, ThreeWorld, three_world_default;
+  var import_config, TAU, tmpV, tmpPos2, tmpS, tmpAxis, tmpQ, tmpEuler2, tmpMat, UP, FLOOR_Y, WALL_R, GRAVITY, ThreeWorld, three_world_default;
   var init_three_world = __esm({
     "src/three-world.js"() {
       init_three_module();
       import_config = __toESM(require_config());
+      init_dog_models();
       TAU = Math.PI * 2;
       tmpV = new Vector3();
+      tmpPos2 = new Vector3();
+      tmpS = new Vector3();
+      tmpAxis = new Vector3();
+      tmpQ = new Quaternion();
+      tmpEuler2 = new Euler();
+      tmpMat = new Matrix4();
+      UP = new Vector3(0, 1, 0);
+      FLOOR_Y = 0.28;
+      WALL_R = 2.2;
+      GRAVITY = 9;
       ThreeWorld = class {
         constructor(canvas, app, width, height) {
           this.app = app;
@@ -27084,14 +27751,19 @@
           this.t = 0;
           this.last = 0;
           this.dogs = [];
+          this.reserve = [];
+          this.animalMeshes = [];
+          this.pressedItem = null;
+          this.level = null;
+          this.nextSpawnAt = 0;
           this.tweens = [];
           this.particles = null;
           this.particlePool = [];
           this.rings = [];
           this.clouds = [];
           this.cameraSway = { x: 0, y: 0, tx: 0, ty: 0 };
-          this.cameraHome = new Vector3(0, 5.7, 8.6);
-          this.lookHome = new Vector3(0, 0.95, 0.2);
+          this.cameraHome = new Vector3(0, 10.2, 8);
+          this.lookHome = new Vector3(0, 0.2, 0.95);
           this.cameraTarget = this.lookHome.clone();
           this.cameraPos = this.cameraHome.clone();
           this.shake = 0;
@@ -27103,6 +27775,7 @@
           this.initRenderer();
           this.initScene();
           this.initLights();
+          this.initEnvironmentMap();
           this.initOverlay();
           this.initParticles();
           this.setTheme("park");
@@ -27139,6 +27812,7 @@
           this.scene.add(this.env);
           this.dogGroup = new Group();
           this.scene.add(this.dogGroup);
+          this.pickGroup = new Group();
           this.selectionRing = new Mesh(
             new TorusGeometry(0.5, 0.035, 8, 40),
             new MeshBasicMaterial({
@@ -27157,7 +27831,7 @@
           this.pointer = new Vector2();
         }
         initLights() {
-          this.hemi = new HemisphereLight(srgb(16774620), srgb(7048278), 0.62);
+          this.hemi = new HemisphereLight(srgb(16774620), srgb(7048278), 0.45);
           this.scene.add(this.hemi);
           this.sun = new DirectionalLight(srgb(16770997), 1.35);
           this.sun.position.set(-5.5, 9, 6);
@@ -27459,24 +28133,24 @@
           const cream = mat("#F7E8C9", { roughness: 0.62 });
           const accent = mat("#E9A35B", { roughness: 0.7 });
           const inside = mat("#C6A170", { roughness: 0.95 });
-          const wall = new Mesh(new CylinderGeometry(2.55, 2.15, 0.72, 54, 1, true), cream);
-          wall.position.y = 0.36;
+          const wall = new Mesh(new CylinderGeometry(2.6, 2.2, 1, 54, 1, true), cream);
+          wall.position.y = 0.5;
           wall.castShadow = true;
           wall.receiveShadow = true;
           wall.material.side = DoubleSide;
           bowl.add(wall);
-          const bottom = new Mesh(new CylinderGeometry(2.15, 2.2, 0.12, 54), accent);
+          const bottom = new Mesh(new CylinderGeometry(2.2, 2.25, 0.12, 54), accent);
           bottom.position.y = 0.06;
           bottom.castShadow = true;
           bowl.add(bottom);
-          const inner = new Mesh(new CircleGeometry(2.14, 54), inside);
+          const inner = new Mesh(new CircleGeometry(2.2, 54), inside);
           inner.rotation.x = -Math.PI / 2;
           inner.position.y = 0.28;
           inner.receiveShadow = true;
           bowl.add(inner);
-          const rim = new Mesh(new TorusGeometry(2.55, 0.16, 12, 54), accent);
+          const rim = new Mesh(new TorusGeometry(2.6, 0.16, 12, 54), accent);
           rim.rotation.x = Math.PI / 2;
-          rim.position.y = 0.72;
+          rim.position.y = 1;
           rim.castShadow = true;
           bowl.add(rim);
           const pawTex = canvasTexture(this.app, 128, 128, (c, w, h) => {
@@ -27495,7 +28169,7 @@
             c.fill();
           });
           const decal = new Sprite(new SpriteMaterial({ map: pawTex, transparent: true, depthWrite: false }));
-          decal.position.set(0, 0.42, 2.65);
+          decal.position.set(0, 0.5, 2.72);
           decal.scale.set(0.62, 0.62, 1);
           bowl.add(decal);
           env.add(bowl);
@@ -27560,306 +28234,581 @@
           env.add(house);
         }
         /* ------------------------------------------------------------------ */
-        getMat(key, color, opts) {
-          if (!this.matCache) this.matCache = {};
-          if (!this.matCache[key]) this.matCache[key] = mat(color, opts);
-          return this.matCache[key];
-        }
-        getShinyMat(key, color) {
-          if (!this.matCache) this.matCache = {};
-          if (!this.matCache[key]) this.matCache[key] = shiny(color);
-          return this.matCache[key];
-        }
-        getGlassMat(color) {
-          if (!this.matCache) this.matCache = {};
-          const key = "glass-" + color;
-          if (!this.matCache[key]) {
-            const m = shiny(color);
-            m.transparent = true;
-            m.opacity = 0.92;
-            m.depthWrite = false;
-            this.matCache[key] = m;
-          }
-          return this.matCache[key];
-        }
-        getGeo(key, make) {
-          if (!this.geoCache) this.geoCache = {};
-          if (!this.geoCache[key]) this.geoCache[key] = make();
-          return this.geoCache[key];
-        }
-        makeDog(type) {
-          const g = new Group();
-          const fur = this.getMat(type.id + "-fur", type.fur, { roughness: 0.78 });
-          const light = this.getMat(type.id + "-light", type.light, { roughness: 0.86 });
-          const dark = this.getMat(type.id + "-dark", type.dark, { roughness: 0.86 });
-          const accent = this.getMat(type.id + "-accent", type.accent, { roughness: 0.65 });
-          const outline = this.getMat("outline", "#2C211C", { roughness: 0.9 });
-          const seg = this.app.isLowEnd ? 12 : 16;
-          const sphere = this.sphereGeo || (this.sphereGeo = new SphereGeometry(1, seg, this.app.isLowEnd ? 8 : 12));
-          const body = new Mesh(sphere, fur);
-          body.scale.set(0.52, 0.35, 0.46);
-          body.position.set(0, 0.22, 0);
-          body.castShadow = true;
-          g.add(body);
-          const head = new Mesh(sphere, fur);
-          head.scale.set(0.52, 0.46, 0.46);
-          head.position.set(0, 0.66, 0.03);
-          head.castShadow = true;
-          head.receiveShadow = true;
-          g.add(head);
-          const muzzle = new Mesh(sphere, light);
-          muzzle.scale.set(0.31, 0.21, 0.24);
-          muzzle.position.set(0, 0.53, 0.37);
-          muzzle.castShadow = true;
-          g.add(muzzle);
-          const nose = new Mesh(sphere, this.getMat("nose", "#2C2524", { roughness: 0.2 }));
-          nose.scale.set(0.105, 0.075, 0.085);
-          nose.position.set(0, 0.59, 0.57);
-          g.add(nose);
-          for (let s = -1; s <= 1; s += 2) {
-            const eye = new Mesh(sphere, this.getMat("eye", "#2B2422", { roughness: 0.14 }));
-            eye.scale.set(0.075, 0.09, 0.055);
-            eye.position.set(s * 0.185, 0.74, 0.41);
-            g.add(eye);
-            const shine = new Mesh(sphere, this.getMat("shine", 16777215, { roughness: 0.1 }));
-            shine.scale.set(0.024, 0.027, 0.012);
-            shine.position.set(s * 0.165, 0.77, 0.462);
-            g.add(shine);
-            const brow = new Mesh(sphere, dark);
-            brow.scale.set(0.09, 0.032, 0.025);
-            brow.position.set(s * 0.19, 0.86, 0.38);
-            brow.rotation.z = s * 0.16;
-            g.add(brow);
-          }
-          for (let s = -1; s <= 1; s += 2) {
-            const ear = new Mesh(sphere, fur);
-            if (type.ear === "floppy") {
-              ear.scale.set(0.17, 0.34, 0.12);
-              ear.position.set(s * 0.44, 0.56, 0);
-              ear.rotation.z = s * 0.42;
-              ear.rotation.x = -0.08;
-            } else if (type.ear === "big") {
-              ear.scale.set(0.23, 0.42, 0.15);
-              ear.position.set(s * 0.4, 0.95, -0.01);
-              ear.rotation.z = s * 0.28;
-            } else if (type.ear === "fold") {
-              ear.scale.set(0.2, 0.19, 0.13);
-              ear.position.set(s * 0.37, 0.91, 0.01);
-              ear.rotation.z = s * 0.55;
-            } else {
-              ear.scale.set(0.17, 0.34, 0.12);
-              ear.position.set(s * 0.35, 0.99, -0.01);
-              ear.rotation.z = s * 0.3;
-              ear.rotation.x = -0.16;
+        /* ---------------------------------------------------------------- */
+        /* Animals: instanced meshes + a small sphere physics pile          */
+        /* ---------------------------------------------------------------- */
+        initEnvironmentMap() {
+          try {
+            const pmrem = new PMREMGenerator(this.renderer);
+            const envScene = new Scene();
+            const geo = new SphereGeometry(10, 24, 12);
+            const pos = geo.attributes.position;
+            const cols = new Float32Array(pos.count * 3);
+            const top = srgb("#FFF4DE");
+            const mid = srgb("#EADBC0");
+            const bottom = srgb("#86A06A");
+            const c = new Color();
+            for (let i = 0; i < pos.count; i++) {
+              const y = pos.getY(i) / 10;
+              if (y > 0) c.copy(mid).lerp(top, y);
+              else c.copy(mid).lerp(bottom, Math.min(1, -y * 1.6));
+              cols[i * 3] = c.r;
+              cols[i * 3 + 1] = c.g;
+              cols[i * 3 + 2] = c.b;
             }
-            ear.castShadow = true;
-            g.add(ear);
-            if (type.ear !== "fold") {
-              const inner = new Mesh(sphere, light);
-              inner.scale.copy(ear.scale).multiplyScalar(0.62);
-              inner.position.copy(ear.position);
-              inner.position.z += 0.1;
-              inner.rotation.copy(ear.rotation);
-              g.add(inner);
-            }
+            geo.setAttribute("color", new BufferAttribute(cols, 3));
+            envScene.add(new Mesh(geo, new MeshBasicMaterial({ side: BackSide, vertexColors: true })));
+            const key = new Mesh(new PlaneGeometry(7, 5), new MeshBasicMaterial({ color: new Color(5.5, 5, 4.2), side: DoubleSide }));
+            key.position.set(-4, 7, 5);
+            key.lookAt(0, 0, 0);
+            envScene.add(key);
+            const rim = new Mesh(new PlaneGeometry(5, 4), new MeshBasicMaterial({ color: new Color(1.4, 1.8, 2.4), side: DoubleSide }));
+            rim.position.set(6, 3, -6);
+            rim.lookAt(0, 0, 0);
+            envScene.add(rim);
+            this.envMap = pmrem.fromScene(envScene, 0.03).texture;
+            pmrem.dispose();
+          } catch (e) {
+            this.envMap = null;
           }
-          for (let s = -1; s <= 1; s += 2) {
-            const paw = new Mesh(sphere, light);
-            paw.scale.set(0.19, 0.12, 0.2);
-            paw.position.set(s * 0.28, 0.09, 0.35);
-            paw.castShadow = true;
-            g.add(paw);
+          const mats = getAnimalMaterials();
+          for (let i = 0; i < mats.length; i++) {
+            mats[i].envMap = this.envMap;
+            mats[i].needsUpdate = true;
           }
-          const addPatch = (x, y, z, sx, sy, sz, material, rz, rx) => {
-            const p = new Mesh(sphere, material);
-            p.scale.set(sx, sy, sz);
-            p.position.set(x, y, z);
-            if (rz) p.rotation.z = rz;
-            if (rx) p.rotation.x = rx;
-            g.add(p);
-            return p;
-          };
-          if (type.pattern === "husky") {
-            addPatch(0, 0.55, 0.43, 0.28, 0.25, 0.1, light);
-            addPatch(0, 0.82, 0.34, 0.12, 0.27, 0.08, light);
-            addPatch(-0.19, 0.79, 0.41, 0.095, 0.06, 0.04, light, -0.2);
-            addPatch(0.19, 0.79, 0.41, 0.095, 0.06, 0.04, light, 0.2);
-          } else if (type.pattern === "corgi") {
-            addPatch(0, 0.8, 0.39, 0.1, 0.29, 0.07, light);
-            addPatch(0, 0.54, 0.46, 0.24, 0.19, 0.08, light);
-          } else if (type.pattern === "shiba") {
-            addPatch(0, 0.56, 0.44, 0.25, 0.19, 0.07, light);
-            addPatch(-0.19, 0.84, 0.42, 0.058, 0.035, 0.02, light, -0.2);
-            addPatch(0.19, 0.84, 0.42, 0.058, 0.035, 0.02, light, 0.2);
-          } else if (type.pattern === "spots") {
-            addPatch(-0.3, 0.83, 0.24, 0.11, 0.1, 0.07, dark, -0.4);
-            addPatch(0.31, 0.62, 0.24, 0.09, 0.12, 0.07, dark, 0.3);
-            addPatch(0.12, 0.44, 0.43, 0.07, 0.06, 0.03, dark);
-            addPatch(-0.05, 0.95, 0.27, 0.07, 0.06, 0.04, dark);
-          } else if (type.pattern === "curly") {
-            for (let i = 0; i < 7; i++) {
-              const a = i * 1.4 + 0.5;
-              addPatch(
-                Math.cos(a) * 0.38,
-                0.68 + Math.sin(a) * 0.25,
-                Math.sin(a) * 0.2 + 0.28,
-                0.11,
-                0.1,
-                0.07,
-                light,
-                a
-              );
-            }
-          } else if (type.pattern === "tanbrow") {
-            addPatch(-0.19, 0.85, 0.41, 0.085, 0.04, 0.025, light, -0.2);
-            addPatch(0.19, 0.85, 0.41, 0.085, 0.04, 0.025, light, 0.2);
-            addPatch(-0.36, 0.6, 0.28, 0.11, 0.09, 0.05, light, -0.2);
-            addPatch(0.36, 0.6, 0.28, 0.11, 0.09, 0.05, light, 0.2);
-          } else if (type.pattern === "bulldog") {
-            addPatch(0, 0.52, 0.44, 0.35, 0.22, 0.12, light);
-            addPatch(-0.27, 0.6, 0.35, 0.12, 0.16, 0.07, light, -0.2);
-            addPatch(0.27, 0.6, 0.35, 0.12, 0.16, 0.07, light, 0.2);
-          } else if (type.pattern === "pug") {
-            addPatch(0, 0.57, 0.4, 0.31, 0.13, 0.06, dark);
-            addPatch(0, 0.54, 0.47, 0.24, 0.15, 0.085, light);
-          } else if (type.pattern === "maltese") {
-            addPatch(0, 1.12, 0.02, 0.14, 0.12, 0.1, light);
-            addPatch(-0.08, 1.1, 0.03, 0.09, 0.08, 0.07, light);
-            addPatch(0.08, 1.1, 0.03, 0.09, 0.08, 0.07, light);
-            const bowL = addPatch(-0.13, 1.14, 0.1, 0.09, 0.06, 0.04, accent, -0.4);
-            bowL.rotation.y = 0.4;
-            const bowR = addPatch(0.13, 1.14, 0.1, 0.09, 0.06, 0.04, accent, 0.4);
-            bowR.rotation.y = -0.4;
-            addPatch(0, 1.14, 0.13, 0.035, 0.04, 0.03, this.getShinyMat("shiny-pink", "#F8CBD8"));
-          }
-          if (type.accessory === "collar" || type.accessory === "bandana") {
-            if (type.accessory === "collar") {
-              const collar = new Mesh(this.getGeo("collar", () => new TorusGeometry(0.37, 0.055, 8, 26)), accent);
-              collar.rotation.x = Math.PI / 2;
-              collar.position.set(0, 0.31, 0.03);
-              g.add(collar);
-              const tag = new Mesh(this.getGeo("tag", () => new CircleGeometry(0.065, 12)), this.getShinyMat("shiny-gold", "#FFD45C"));
-              tag.position.set(0, 0.22, 0.39);
-              g.add(tag);
-            } else {
-              const scarf = new Mesh(this.getGeo("scarf", () => new ConeGeometry(0.3, 0.28, 3)), accent);
-              scarf.rotation.x = Math.PI;
-              scarf.rotation.y = Math.PI / 2;
-              scarf.position.set(0, 0.28, 0.3);
-              scarf.scale.z = 0.3;
-              g.add(scarf);
-              const knot = new Mesh(sphere, accent);
-              knot.scale.set(0.08, 0.07, 0.06);
-              knot.position.set(0, 0.37, 0.38);
-              g.add(knot);
-            }
-          } else if (type.accessory === "goggles") {
-            const strap = new Mesh(this.getGeo("goggle-strap", () => new TorusGeometry(0.47, 0.03, 6, 30, Math.PI)), dark);
-            strap.rotation.set(Math.PI / 2, 0, 0);
-            strap.position.set(0, 0.94, 0.02);
-            g.add(strap);
-            for (let s = -1; s <= 1; s += 2) {
-              const lens = new Mesh(this.getGeo("goggle-lens", () => new TorusGeometry(0.1, 0.025, 8, 18)), dark);
-              lens.position.set(s * 0.16, 0.96, 0.37);
-              g.add(lens);
-              const glass = new Mesh(this.getGeo("goggle-glass", () => new CircleGeometry(0.085, 18)), this.getGlassMat(type.accent));
-              glass.position.set(s * 0.16, 0.96, 0.365);
-              g.add(glass);
-            }
-          } else if (type.accessory === "bow") {
-            if (type.id !== "maltese") {
-              const bowL = new Mesh(sphere, accent);
-              bowL.scale.set(0.12, 0.07, 0.05);
-              bowL.position.set(0.47, 0.98, 0.05);
-              bowL.rotation.z = 0.35;
-              g.add(bowL);
-              const bowR = bowL.clone();
-              bowR.position.x = 0.6;
-              bowR.rotation.z = -0.35;
-              g.add(bowR);
-              const knot = new Mesh(sphere, this.getShinyMat("shiny-bow", "#FFE6EE"));
-              knot.scale.set(0.045, 0.05, 0.04);
-              knot.position.set(0.535, 0.98, 0.06);
-              g.add(knot);
-            }
-          }
-          for (let s = -1; s <= 1; s += 2) {
-            const blush = new Mesh(sphere, this.getMat("blush", "#F28E93", { roughness: 0.8, emissive: "#F28E93", emissiveIntensity: 0.12 }));
-            blush.scale.set(0.09, 0.045, 0.02);
-            blush.position.set(s * 0.37, 0.58, 0.36);
-            g.add(blush);
-          }
-          return g;
         }
         setLevel(level, items) {
           this.clearDogs();
           this.level = level;
           this.setTheme(level.theme);
           this.mode = "play";
-          this.cameraHome.set(0, 5.7, 8.6);
-          this.lookHome.set(0, 0.95, 0.2);
+          this.cameraHome.set(0, 10.2, 8);
+          this.lookHome.set(0, 0.2, 0.95);
           this.cameraTarget.copy(this.lookHome);
           this.cameraPos.copy(this.cameraHome);
           this.shake = 0;
-          const layers = items.length > 40 ? 4 : items.length > 24 ? 3 : 3;
-          const n = items.length;
-          const layerWeights = layers === 4 ? [0.34, 0.28, 0.22, 0.16] : [0.42, 0.34, 0.24];
-          const counts = [];
-          let used = 0;
-          for (let l = 0; l < layers; l++) {
-            let c = l === layers - 1 ? n - used : Math.round(n * layerWeights[l]);
-            counts.push(c);
-            used += c;
+          this.runnerSpeed = level.runnerSpeed || 1.25;
+          const runners = level.runners || [];
+          const byType = {};
+          for (let i = 0; i < items.length; i++) {
+            const it = items[i];
+            (byType[it.typeId] = byType[it.typeId] || []).push(it);
           }
-          let idx = 0;
-          for (let layer = 0; layer < layers; layer++) {
-            const count = counts[layer];
-            const ringMin = layer === 0 ? 1 : layer === 1 ? 0.55 : 0.1;
-            const ringMax = layer === 0 ? 1.55 : layer === 1 ? 1.2 : layer === 2 ? 0.82 : 0.5;
-            for (let i = 0; i < count; i++) {
-              const item = items[idx++];
-              const angle = i * 2.399963 + layer * 0.8 + i % 3 * 0.2;
-              const r = ringMin + (i * 0.618 + layer * 0.31) % 1 * Math.max(0.05, ringMax - ringMin);
-              const x = Math.cos(angle) * r;
-              const z = Math.sin(angle) * r;
-              const y = 0.3 + layer * 0.52 + i * 17 % 7 * 0.012;
-              const scale = 0.88 + (i * 13 + layer * 7) % 11 / 50;
-              const dog = this.makeDog(import_config.default.getDog(item.typeId));
-              dog.position.set(x, y, z);
-              dog.rotation.y = (i * 47 + layer * 19) % 100 / 100 * 1.2 - 0.6;
-              dog.scale.setScalar(scale);
-              dog.userData.item = item;
-              item.group = dog;
-              item.home = new Vector3(x, y + 0.1, z);
-              item.baseScale = scale;
-              item.phase = (i * 1.37 + layer) % TAU;
-              item.anim = "idle";
-              item.animT = 0;
-              item.jiggle = 0;
-              dog.traverse((o) => {
-                o.userData.item = item;
-                if (o.isMesh) o.receiveShadow = true;
-              });
-              this.dogGroup.add(dog);
-              this.dogs.push(item);
+          const mats = getAnimalMaterials();
+          const detail = this.app.isLowEnd ? "low" : "mid";
+          const animalShadows = items.length <= 45;
+          Object.keys(byType).forEach((typeId) => {
+            const list = byType[typeId];
+            const type = import_config.default.getDog(typeId);
+            const mesh = new InstancedMesh(getAnimalGeometry(type, detail), mats, list.length);
+            mesh.instanceMatrix.setUsage(DynamicDrawUsage);
+            mesh.frustumCulled = false;
+            mesh.castShadow = animalShadows;
+            mesh.receiveShadow = true;
+            const pick = new InstancedMesh(getAnimalGeometry(type, "low"), mats, list.length);
+            pick.instanceMatrix = mesh.instanceMatrix;
+            pick.frustumCulled = false;
+            pick.userData.items = list;
+            for (let i = 0; i < list.length; i++) {
+              list[i].mesh = mesh;
+              list[i].slot = i;
+            }
+            this.dogGroup.add(mesh);
+            this.pickGroup.add(pick);
+            this.animalMeshes.push(mesh);
+          });
+          this.pickGroup.updateMatrixWorld(true);
+          const activeMax = Math.min(items.length, level.activeMax || items.length);
+          this.reserve = [];
+          for (let i = 0; i < items.length; i++) {
+            const it = items[i];
+            const type = import_config.default.getDog(it.typeId);
+            const scale = ((type.kind === "monster" ? 0.86 : type.kind === "cat" ? 0.7 : 0.74) + i * 13 % 11 / 120) * (items.length > 45 ? 0.92 : 1);
+            it.baseScale = scale;
+            it.runner = runners.indexOf(it.typeId) >= 0;
+            it.phase = i * 1.37 % TAU;
+            it.animT = 0;
+            it.lift = 0;
+            it.body = {
+              p: new Vector3(),
+              v: new Vector3(),
+              q: messyQuat(new Quaternion()),
+              w: new Vector3(),
+              r: BODY_RADIUS * scale * 0.9,
+              active: false,
+              contact: false,
+              waypoint: new Vector3(),
+              nextWaypointAt: 0
+            };
+            this.dogs.push(it);
+            if (i < activeMax) {
+              const a = Math.random() * TAU;
+              const rr = Math.sqrt(Math.random()) * (WALL_R - 0.6);
+              it.body.p.set(Math.cos(a) * rr, FLOOR_Y + 0.5 + i * 0.2, Math.sin(a) * rr);
+              it.body.active = true;
+              it.anim = "idle";
+              if (it.runner) it.body.q.setFromAxisAngle(UP, Math.random() * TAU);
+            } else {
+              it.anim = "reserve";
+              this.reserve.push(it);
             }
           }
+          for (let s = 0; s < 240; s++) this.stepPhysics(1 / 60, 0);
+          for (let i = 0; i < this.dogs.length; i++) {
+            const b = this.dogs[i].body;
+            b.v.set(0, 0, 0);
+            b.w.set(0, 0, 0);
+          }
+          this.nextSpawnAt = 0;
+          this.writeInstances();
           this.spawnAmbient();
         }
         clearDogs() {
-          for (let i = 0; i < this.dogs.length; i++) {
-            const d = this.dogs[i];
-            if (d.group) {
-              this.dogGroup.remove(d.group);
-            }
+          for (let i = 0; i < this.animalMeshes.length; i++) {
+            this.dogGroup.remove(this.animalMeshes[i]);
+            if (this.animalMeshes[i].dispose) this.animalMeshes[i].dispose();
           }
+          this.animalMeshes = [];
+          while (this.pickGroup.children.length) this.pickGroup.remove(this.pickGroup.children[0]);
           this.dogs = [];
-          while (this.dogGroup.children.length) {
-            this.dogGroup.remove(this.dogGroup.children[0]);
-          }
+          this.reserve = [];
+          this.pressedItem = null;
+          this.selectionRing.visible = false;
           if (this.revealDog) {
             this.scene.remove(this.revealDog);
             this.revealDog = null;
+          }
+        }
+        activeBodies() {
+          const out = [];
+          for (let i = 0; i < this.dogs.length; i++) {
+            const it = this.dogs[i];
+            if (it.body && it.body.active) {
+              it.body.item = it;
+              out.push(it.body);
+            }
+          }
+          return out;
+        }
+        stepPhysics(dt, t) {
+          const bodies = this.activeBodies();
+          const n = bodies.length;
+          if (!n) return;
+          const sub = 2;
+          const h = dt / sub;
+          const speed = this.runnerSpeed || 1.25;
+          for (let s = 0; s < sub; s++) {
+            for (let i = 0; i < n; i++) {
+              const b = bodies[i];
+              const it = b.item;
+              b.v.y -= GRAVITY * h;
+              if (it.runner && it.anim === "idle" && t > 0) this.driveRunner(it, b, h, t, speed);
+              b.p.addScaledVector(b.v, h);
+              b.contact = false;
+            }
+            for (let iter = 0; iter < 3; iter++) {
+              for (let i = 0; i < n; i++) {
+                const a = bodies[i];
+                for (let j = i + 1; j < n; j++) {
+                  const b = bodies[j];
+                  const dx = a.p.x - b.p.x;
+                  const dy = a.p.y - b.p.y;
+                  const dz = a.p.z - b.p.z;
+                  const minD = a.r + b.r;
+                  const d2 = dx * dx + dy * dy + dz * dz;
+                  if (d2 >= minD * minD) continue;
+                  const d = Math.sqrt(d2) || 1e-4;
+                  const nx = dx / d;
+                  const ny = dy / d;
+                  const nz = dz / d;
+                  const push = (minD - d) * 0.5;
+                  a.p.x += nx * push;
+                  a.p.y += ny * push;
+                  a.p.z += nz * push;
+                  b.p.x -= nx * push;
+                  b.p.y -= ny * push;
+                  b.p.z -= nz * push;
+                  if (iter !== 0) continue;
+                  const rvx = a.v.x - b.v.x;
+                  const rvy = a.v.y - b.v.y;
+                  const rvz = a.v.z - b.v.z;
+                  const vn = rvx * nx + rvy * ny + rvz * nz;
+                  if (vn < 0) {
+                    const imp = -vn * 0.6;
+                    a.v.x += nx * imp;
+                    a.v.y += ny * imp;
+                    a.v.z += nz * imp;
+                    b.v.x -= nx * imp;
+                    b.v.y -= ny * imp;
+                    b.v.z -= nz * imp;
+                  }
+                  const tx = rvx - nx * vn;
+                  const ty = rvy - ny * vn;
+                  const tz = rvz - nz * vn;
+                  a.v.x -= tx * 0.12;
+                  a.v.y -= ty * 0.12;
+                  a.v.z -= tz * 0.12;
+                  b.v.x += tx * 0.12;
+                  b.v.y += ty * 0.12;
+                  b.v.z += tz * 0.12;
+                  const sx = (ny * tz - nz * ty) * 0.6;
+                  const sy = (nz * tx - nx * tz) * 0.6;
+                  const sz = (nx * ty - ny * tx) * 0.6;
+                  a.w.x += sx;
+                  a.w.y += sy;
+                  a.w.z += sz;
+                  b.w.x += sx;
+                  b.w.y += sy;
+                  b.w.z += sz;
+                  if (ny > 0.4) a.contact = true;
+                  if (ny < -0.4) b.contact = true;
+                }
+              }
+              for (let i = 0; i < n; i++) this.constrainToBowl(bodies[i]);
+            }
+            const damp = Math.exp(-0.6 * h);
+            const spinDamp = Math.exp(-2.5 * h);
+            for (let i = 0; i < n; i++) {
+              const b = bodies[i];
+              b.v.multiplyScalar(damp);
+              if (b.contact && b.v.lengthSq() < 0.04) b.v.multiplyScalar(0.8);
+              b.w.multiplyScalar(spinDamp);
+              if (b.item.runner && b.item.anim === "idle") b.w.multiplyScalar(0.6);
+              const wl = b.w.length();
+              if (wl > 1e-4) {
+                tmpAxis.copy(b.w).divideScalar(wl);
+                tmpQ.setFromAxisAngle(tmpAxis, Math.min(wl, 12) * h);
+                b.q.premultiply(tmpQ).normalize();
+              }
+            }
+          }
+        }
+        constrainToBowl(b) {
+          const floor = FLOOR_Y + b.r;
+          if (b.p.y < floor) {
+            b.p.y = floor;
+            if (b.v.y < 0) b.v.y = -b.v.y * 0.18;
+            b.v.x *= 0.9;
+            b.v.z *= 0.9;
+            b.contact = true;
+          }
+          const rr = Math.sqrt(b.p.x * b.p.x + b.p.z * b.p.z);
+          const maxR = WALL_R - b.r;
+          if (rr > maxR) {
+            const nx = b.p.x / rr;
+            const nz = b.p.z / rr;
+            b.p.x = nx * maxR;
+            b.p.z = nz * maxR;
+            const vn = b.v.x * nx + b.v.z * nz;
+            if (vn > 0) {
+              b.v.x -= nx * vn * 1.3;
+              b.v.z -= nz * vn * 1.3;
+            }
+          }
+        }
+        driveRunner(it, b, h, t, speed) {
+          tmpV.set(b.waypoint.x - b.p.x, 0, b.waypoint.z - b.p.z);
+          if (t > b.nextWaypointAt || tmpV.lengthSq() < 0.09) {
+            const a = Math.random() * TAU;
+            const rr = Math.sqrt(Math.random()) * (WALL_R - 0.55);
+            b.waypoint.set(Math.cos(a) * rr, 0, Math.sin(a) * rr);
+            b.nextWaypointAt = t + 1.2 + Math.random() * 1.6;
+            tmpV.set(b.waypoint.x - b.p.x, 0, b.waypoint.z - b.p.z);
+          }
+          const dist = tmpV.length();
+          if (dist > 1e-3) {
+            tmpV.divideScalar(dist);
+            b.v.x += tmpV.x * 9 * h;
+            b.v.z += tmpV.z * 9 * h;
+            const hs = Math.sqrt(b.v.x * b.v.x + b.v.z * b.v.z);
+            if (hs > speed) {
+              b.v.x *= speed / hs;
+              b.v.z *= speed / hs;
+            }
+            tmpEuler2.set(0, Math.atan2(tmpV.x, tmpV.z), Math.sin(t * 14 + it.phase) * 0.18);
+            tmpQ.setFromEuler(tmpEuler2);
+            b.q.slerp(tmpQ, 1 - Math.exp(-10 * h));
+          }
+          if (b.contact && b.v.y < 0.4 && Math.random() < 1.8 * h) b.v.y = 2.6 + Math.random();
+        }
+        writeInstances() {
+          for (let i = 0; i < this.dogs.length; i++) {
+            const it = this.dogs[i];
+            if (!it.mesh) continue;
+            const b = it.body;
+            if (it.anim === "gone" || it.anim === "reserve") {
+              tmpPos2.set(0, -50, 0);
+              tmpS.setScalar(1e-4);
+            } else {
+              let scale = it.baseScale;
+              if (it.anim === "spawn") scale *= 0.2 + 0.8 * easeOutBack(Math.min(1, it.animT / 0.32));
+              else if (it.anim === "picking") {
+                const p = Math.min(1, it.animT / 0.38);
+                scale *= (1 + Math.sin(p * Math.PI) * 0.22) * (1 - p * 0.7);
+              }
+              tmpPos2.copy(b.p);
+              tmpPos2.y += it.lift;
+              tmpS.setScalar(scale);
+            }
+            tmpMat.compose(tmpPos2, b.q, tmpS);
+            it.mesh.setMatrixAt(it.slot, tmpMat);
+          }
+          for (let i = 0; i < this.animalMeshes.length; i++) this.animalMeshes[i].instanceMatrix.needsUpdate = true;
+        }
+        liveCount() {
+          let live = 0;
+          for (let i = 0; i < this.dogs.length; i++) {
+            const a = this.dogs[i].anim;
+            if (a === "idle" || a === "spawn") live++;
+          }
+          return live;
+        }
+        updateAnimals(dt, t) {
+          for (let i = 0; i < this.dogs.length; i++) {
+            const it = this.dogs[i];
+            it.animT += dt;
+            const target = it === this.pressedItem && it.anim === "idle" ? 0.14 : 0;
+            it.lift += (target - it.lift) * Math.min(1, dt * 18);
+            if (it.anim === "spawn" && it.animT >= 0.32) it.anim = "idle";
+            if (it.anim === "picking") {
+              const p = Math.min(1, it.animT / 0.38);
+              const e = easeOutCubic(p);
+              it.body.p.set(it.flyFrom.x, it.flyFrom.y + e * 1.15, it.flyFrom.z + e * 0.6);
+              tmpQ.setFromAxisAngle(UP, dt * 4);
+              it.body.q.premultiply(tmpQ);
+              if (p >= 1) it.anim = "gone";
+            }
+          }
+          if (this.reserve.length && t >= this.nextSpawnAt) {
+            const max = this.level && this.level.activeMax || 999;
+            if (this.liveCount() < max) {
+              let next = null;
+              while (this.reserve.length && !next) {
+                const cand = this.reserve.shift();
+                if (!cand.picked && cand.anim === "reserve") next = cand;
+              }
+              if (next) {
+                this.popIn(next);
+                this.nextSpawnAt = t + 0.18;
+              }
+            }
+          }
+          this.stepPhysics(Math.min(dt, 1 / 30), t);
+          this.writeInstances();
+          const pressed = this.pressedItem;
+          if (pressed && pressed.anim === "idle") {
+            const b = pressed.body;
+            this.selectionRing.visible = true;
+            this.selectionRing.position.set(b.p.x, b.p.y - b.r * 0.8, b.p.z);
+            this.selectionRing.scale.setScalar(pressed.baseScale);
+          } else {
+            this.selectionRing.visible = false;
+          }
+        }
+        popIn(item) {
+          const b = item.body;
+          let topY = FLOOR_Y + 0.6;
+          for (let i = 0; i < this.dogs.length; i++) {
+            const d = this.dogs[i];
+            if (d !== item && d.body && d.body.active && d.body.p.y > topY) topY = d.body.p.y;
+          }
+          const a = Math.random() * TAU;
+          const rr = Math.random() * 0.8;
+          b.p.set(Math.cos(a) * rr, topY + 0.6, Math.sin(a) * rr);
+          b.v.set((Math.random() - 0.5) * 1.6, 1.6 + Math.random(), (Math.random() - 0.5) * 1.6 + 0.5);
+          b.w.set((Math.random() - 0.5) * 6, (Math.random() - 0.5) * 6, (Math.random() - 0.5) * 6);
+          if (item.runner) b.q.setFromAxisAngle(UP, Math.random() * TAU);
+          else messyQuat(b.q);
+          b.active = true;
+          item.anim = "spawn";
+          item.animT = 0;
+          this.burst(b.p.x, b.p.y, b.p.z, "#FFF2C0", 8, 1.1, 0.5);
+        }
+        shuffle() {
+          for (let i = 0; i < this.dogs.length; i++) {
+            const it = this.dogs[i];
+            if (it.anim !== "idle" && it.anim !== "spawn") continue;
+            const b = it.body;
+            const a = Math.random() * TAU;
+            const rr = Math.sqrt(Math.random()) * (WALL_R - 0.6);
+            b.p.set(Math.cos(a) * rr, FLOOR_Y + 1.2 + Math.random() * 3.2, Math.sin(a) * rr);
+            b.v.set(0, -1, 0);
+            b.w.set((Math.random() - 0.5) * 8, (Math.random() - 0.5) * 8, (Math.random() - 0.5) * 8);
+            if (!it.runner) messyQuat(b.q);
+          }
+          this.addShake(0.55, true);
+        }
+        highlight(items) {
+          for (let i = 0; i < items.length; i++) {
+            const d = items[i];
+            if (!d || !d.body || !d.body.active) continue;
+            this.spawnRing(d.body.p.x, d.body.p.y - d.body.r * 0.8, d.body.p.z, 1.6);
+          }
+        }
+        pickDog(item) {
+          if (!item || !item.body || item.anim === "picking" || item.anim === "gone") return;
+          if (this.pressedItem === item) this.pressedItem = null;
+          item.pickable = false;
+          const wasLive = item.body.active && item.anim !== "reserve";
+          item.body.active = false;
+          if (!wasLive) {
+            item.anim = "gone";
+            return;
+          }
+          item.anim = "picking";
+          item.animT = 0;
+          item.flyFrom = item.body.p.clone();
+          const pos = item.body.p;
+          this.burst(pos.x, pos.y + 0.4, pos.z, "#FFE18A", 10, 1.3, 0.4);
+          this.spawnRing(pos.x, pos.y - 0.3, pos.z);
+        }
+        restoreDog(item) {
+          if (!item || !item.body) return;
+          item.pickable = true;
+          this.popIn(item);
+        }
+        setPressed(item) {
+          this.pressedItem = item && item.anim === "idle" ? item : null;
+        }
+        screenOf(item) {
+          if (!item || !item.body || !item.body.active) return null;
+          const v = tmpV.copy(item.body.p);
+          v.project(this.camera);
+          return { x: (v.x * 0.5 + 0.5) * this.width, y: (-v.y * 0.5 + 0.5) * this.height };
+        }
+        /**
+         * Returns the front-most animal under the finger. If `keep` is anywhere in
+         * the stack under the finger it wins, so a held press never slides onto
+         * the animal behind it.
+         */
+        pickAt(clientX, clientY, keep) {
+          if (!this.pickGroup.children.length) return null;
+          this.pointer.x = clientX / this.width * 2 - 1;
+          this.pointer.y = -(clientY / this.height) * 2 + 1;
+          this.camera.updateMatrixWorld();
+          this.raycaster.setFromCamera(this.pointer, this.camera);
+          const hits = this.raycaster.intersectObjects(this.pickGroup.children, false);
+          let front = null;
+          for (let i = 0; i < hits.length; i++) {
+            const list = hits[i].object.userData.items;
+            const item = list && list[hits[i].instanceId];
+            if (!item || item.anim === "gone" || item.anim === "reserve") continue;
+            if (keep && item === keep) return keep;
+            if (!front) front = item;
+          }
+          if (!front) return null;
+          return front.pickable && (front.anim === "idle" || front.anim === "spawn") ? front : null;
+        }
+        addShake(power, quiet) {
+          power = power == null ? 1 : power;
+          this.shake = Math.min(1.4, this.shake + power * 0.9);
+          if (!quiet) {
+            for (let i = 0; i < this.dogs.length; i++) {
+              const it = this.dogs[i];
+              if (it.anim !== "idle" && it.anim !== "spawn") continue;
+              const b = it.body;
+              const low = Math.max(0, 2 - (b.p.y - FLOOR_Y)) * 0.8;
+              b.v.x += ((Math.random() - 0.5) * 3.4 - b.p.x * 0.5) * power;
+              b.v.y += (3 + low + Math.random() * 2.4) * power;
+              b.v.z += ((Math.random() - 0.5) * 3.4 - b.p.z * 0.5) * power;
+              if (!it.runner) b.w.set((Math.random() - 0.5) * 14, (Math.random() - 0.5) * 14, (Math.random() - 0.5) * 14);
+            }
+          }
+          this.spawnRing(0, 0.85, 0);
+          this.burst(0, 1, 0, "#FFE3A0", 14, 0.8, 0.3);
+        }
+        showBigDog(typeId) {
+          this.clearDogs();
+          this.mode = "reveal";
+          const type = import_config.default.getDog(typeId);
+          const dog = new Mesh(getAnimalGeometry(type, this.app.isLowEnd ? "low" : "high"), getAnimalMaterials());
+          dog.castShadow = true;
+          dog.receiveShadow = true;
+          this.revealScale = type.kind === "monster" ? 2.8 : 3.1;
+          dog.position.set(0, 0.35 + MODEL_CENTER_Y * this.revealScale, 0.9);
+          dog.scale.setScalar(this.revealScale);
+          dog.rotation.y = 0.12;
+          this.scene.add(dog);
+          this.revealDog = dog;
+          this.revealTime = 0;
+          this.cameraHome.set(0, 4.2, 6.2);
+          this.lookHome.set(0, 1.9, 0.9);
+          this.cameraTarget.copy(this.lookHome);
+          this.shake = 0.3;
+          this.burst(0, 1.5, 1, "#FFD45C", 40, 2.2, 0.45);
+          this.spawnRing(0, 0.7, 0.9);
+        }
+        /**
+         * Renders one animal on a transparent background into a 2D canvas, so the
+         * tray, collection and result cards show the same models as the bowl.
+         */
+        renderPortrait(typeId) {
+          const size = 192;
+          try {
+            if (!this.portrait) {
+              const scene = new Scene();
+              scene.add(new HemisphereLight(srgb(16774620), srgb(9083760), 0.5));
+              const key = new DirectionalLight(srgb(16772040), 1.3);
+              key.position.set(-2.5, 4, 5);
+              scene.add(key);
+              const rim = new DirectionalLight(srgb(12575743), 0.55);
+              rim.position.set(3, 2, -4);
+              scene.add(rim);
+              const camera = new PerspectiveCamera(30, 1, 0.1, 50);
+              camera.position.set(0, 0.45, 3);
+              camera.lookAt(0, 0.04, 0);
+              const rt = new WebGLRenderTarget(size, size, { format: RGBAFormat });
+              if (sRGBEncoding != null) rt.texture.encoding = sRGBEncoding;
+              this.portrait = { scene, camera, rt, buf: new Uint8Array(size * size * 4) };
+            }
+            const P = this.portrait;
+            const type = import_config.default.getDog(typeId);
+            const mesh = new Mesh(getAnimalGeometry(type, "high"), getAnimalMaterials());
+            mesh.rotation.y = type.kind === "monster" ? 0.5 : 0.25;
+            if (type.kind === "monster") mesh.scale.setScalar(0.9);
+            P.scene.add(mesh);
+            const oldColor = this.renderer.getClearColor(new Color());
+            const oldAlpha = this.renderer.getClearAlpha();
+            const oldTone = this.renderer.toneMapping;
+            this.renderer.setRenderTarget(P.rt);
+            this.renderer.setClearColor(0, 0);
+            this.renderer.clear();
+            this.renderer.render(P.scene, P.camera);
+            this.renderer.readRenderTargetPixels(P.rt, 0, 0, size, size, P.buf);
+            this.renderer.setRenderTarget(null);
+            this.renderer.setClearColor(oldColor, oldAlpha);
+            this.renderer.toneMapping = oldTone;
+            P.scene.remove(mesh);
+            const canvas = this.app.createOffscreenCanvas(size, size);
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext("2d");
+            const img = ctx.createImageData(size, size);
+            const src = P.buf;
+            const dst = img.data;
+            let filled = 0;
+            for (let y = 0; y < size; y++) {
+              const sRow = (size - 1 - y) * size * 4;
+              const dRow = y * size * 4;
+              for (let x = 0; x < size * 4; x += 4) {
+                const a = src[sRow + x + 3];
+                if (a === 0) continue;
+                filled++;
+                dst[dRow + x] = src[sRow + x];
+                dst[dRow + x + 1] = src[sRow + x + 1];
+                dst[dRow + x + 2] = src[sRow + x + 2];
+                dst[dRow + x + 3] = a;
+              }
+            }
+            if (filled < 200) return null;
+            ctx.putImageData(img, 0, 0);
+            return canvas;
+          } catch (e) {
+            try {
+              this.renderer.setRenderTarget(null);
+            } catch (err) {
+            }
+            return null;
           }
         }
         spawnAmbient() {
@@ -27925,133 +28874,14 @@
           ring.userData.life = life || 0.55;
           ring.userData.maxLife = life || 0.55;
         }
-        shuffle() {
-          for (let i = 0; i < this.dogs.length; i++) {
-            const d = this.dogs[i];
-            if (d.anim !== "idle") continue;
-            const a = Math.random() * TAU;
-            const r = 0.15 + Math.random() * 1.4;
-            d.home.x = Math.cos(a) * r;
-            d.home.z = Math.sin(a) * r;
-            d.group.position.x = d.home.x;
-            d.group.position.z = d.home.z;
-            d.group.rotation.y = Math.random() * 1.2 - 0.6;
-            d.jiggle = 1;
-          }
-          this.addShake(0.55);
-        }
-        highlight(items) {
-          for (let i = 0; i < items.length; i++) {
-            const d = items[i];
-            if (!d || !d.group) continue;
-            this.spawnRing(d.group.position.x, d.home.y - 0.22, d.group.position.z, 1.6);
-          }
-        }
-        pickDog(item) {
-          if (!item || item.anim === "picking" || item.anim === "gone") return;
-          item.anim = "picking";
-          item.animT = 0;
-          item.pickable = false;
-          this.selectionRing.visible = false;
-          if (item.group) {
-            const pos = item.group.position;
-            this.burst(pos.x, pos.y + 0.8, pos.z, "#FFE18A", 10, 1.3, 0.4);
-            this.spawnRing(pos.x, pos.y + 0.1, pos.z);
-          }
-        }
-        restoreDog(item) {
-          if (!item) return;
-          item.anim = "restoring";
-          item.animT = 0;
-          item.pickable = true;
-          if (item.group) {
-            item.group.visible = true;
-            item.group.scale.setScalar(0.01);
-            item.group.position.copy(item.home);
-            item.group.rotation.z = 0;
-          }
-        }
-        setPressed(item) {
-          if (this.pressedItem && this.pressedItem !== item && this.pressedItem.anim === "idle") {
-            this.pressedItem.group.position.y = this.pressedItem.home.y;
-          }
-          this.pressedItem = item || null;
-          if (!item || !item.group || item.anim !== "idle") {
-            this.selectionRing.visible = false;
-            return;
-          }
-          this.selectionRing.visible = true;
-          this.selectionRing.position.set(item.group.position.x, item.home.y - 0.24, item.group.position.z);
-          item.group.position.y = item.home.y + 0.16;
-        }
-        screenOf(item) {
-          if (!item || !item.group) return null;
-          const v = new Vector3();
-          item.group.getWorldPosition(v);
-          v.y += 0.7 * (item.baseScale || 1);
-          v.project(this.camera);
-          return { x: (v.x * 0.5 + 0.5) * this.width, y: (-v.y * 0.5 + 0.5) * this.height };
-        }
-        pickAt(clientX, clientY) {
-          const rectW = this.width;
-          const rectH = this.height;
-          this.pointer.x = clientX / rectW * 2 - 1;
-          this.pointer.y = -(clientY / rectH) * 2 + 1;
-          this.raycaster.setFromCamera(this.pointer, this.camera);
-          const hits = this.raycaster.intersectObjects(this.dogGroup.children, true);
-          for (let i = 0; i < hits.length; i++) {
-            const item = hits[i].object.userData.item;
-            if (!item) continue;
-            if (item.anim === "gone" || !item.group || item.group.visible === false) continue;
-            if (item.pickable && item.anim === "idle") return item;
-            return null;
-          }
-          return null;
-        }
-        addShake(power) {
-          power = power == null ? 1 : power;
-          this.shake = Math.min(1.4, this.shake + power * 0.9);
-          for (let i = 0; i < this.dogs.length; i++) {
-            const d = this.dogs[i];
-            if (d.anim !== "idle") continue;
-            d.jiggle = Math.min(1.3, (d.jiggle || 0) + power * (0.55 + Math.random() * 0.65));
-            d.group.rotation.z = (Math.random() - 0.5) * 0.12;
-          }
-          this.spawnRing(0, 0.85, 0);
-          this.burst(0, 1, 0, "#FFE3A0", 14, 0.8, 0.3);
-        }
-        showBigDog(typeId) {
-          this.clearDogs();
-          this.mode = "reveal";
-          const type = import_config.default.getDog(typeId);
-          const dog = this.makeDog(type);
-          dog.position.set(0, 0.35, 0.9);
-          dog.scale.setScalar(3.1);
-          dog.rotation.y = 0.12;
-          dog.traverse((o) => {
-            if (o.isMesh) {
-              o.castShadow = true;
-              o.receiveShadow = true;
-            }
-          });
-          this.scene.add(dog);
-          this.revealDog = dog;
-          this.revealTime = 0;
-          this.cameraHome.set(0, 4.2, 6.2);
-          this.lookHome.set(0, 1.9, 0.9);
-          this.cameraTarget.copy(this.lookHome);
-          this.shake = 0.3;
-          this.burst(0, 1.5, 1, "#FFD45C", 40, 2.2, 0.45);
-          this.spawnRing(0, 0.7, 0.9);
-        }
         setCameraIdle() {
           this.mode = "play";
           if (this.revealDog) {
             this.scene.remove(this.revealDog);
             this.revealDog = null;
           }
-          this.cameraHome.set(0, 5.7, 8.6);
-          this.lookHome.set(0, 0.95, 0.2);
+          this.cameraHome.set(0, 10.2, 8);
+          this.lookHome.set(0, 0.2, 0.95);
         }
         resize(width, height) {
           this.width = width;
@@ -28073,46 +28903,13 @@
             const c = this.clouds[i];
             c.obj.position.x = c.start + Math.sin(t * c.speed) * 2.2;
           }
-          for (let i = 0; i < this.dogs.length; i++) {
-            const d = this.dogs[i];
-            if (!d.group) continue;
-            d.animT += dt;
-            if (d.anim === "idle") {
-              const bob = Math.sin(t * 2.1 + d.phase) * 0.012;
-              const lift = d === this.pressedItem ? 0.16 : 0;
-              d.group.position.y = d.home.y + lift + bob + Math.sin(t * 24 + d.phase) * d.jiggle * 0.09;
-              d.group.position.x = d.home.x + Math.sin(t * 22 + d.phase) * d.jiggle * 0.05;
-              d.group.rotation.z = Math.sin(t * 25 + d.phase) * d.jiggle * 0.08;
-              d.jiggle *= Math.pow(0.22, dt);
-            } else if (d.anim === "picking") {
-              const p = Math.min(1, d.animT / 0.38);
-              const e = easeOutCubic(p);
-              d.group.position.y = d.home.y + e * 1.15;
-              d.group.position.z = d.home.z + e * 0.6;
-              d.group.scale.setScalar(d.baseScale * (1 + Math.sin(p * Math.PI) * 0.22) * (1 - p * 0.7));
-              d.group.rotation.y += dt * 4;
-              if (p >= 1) {
-                d.anim = "gone";
-                d.group.visible = false;
-              }
-            } else if (d.anim === "restoring") {
-              const p = Math.min(1, d.animT / 0.36);
-              const e = 1 - Math.pow(1 - p, 3);
-              d.group.scale.setScalar(d.baseScale * (0.3 + e * 0.7));
-              d.group.position.y = d.home.y + Math.sin(p * Math.PI) * 0.3;
-              if (p >= 1) {
-                d.anim = "idle";
-                d.group.scale.setScalar(d.baseScale);
-                d.group.position.copy(d.home);
-              }
-            }
-          }
+          if (this.mode === "play" && this.dogs.length) this.updateAnimals(dt, t);
           if (this.revealDog) {
             this.revealTime += dt;
             const p = Math.min(1, this.revealTime / 0.8);
             const e = easeOutCubic(p);
-            this.revealDog.scale.setScalar(3.1 * (0.2 + e * 0.8));
-            this.revealDog.position.y = 0.35 + Math.sin(this.revealTime * 2) * 0.06;
+            this.revealDog.scale.setScalar(this.revealScale * (0.2 + e * 0.8));
+            this.revealDog.position.y = 0.35 + MODEL_CENTER_Y * this.revealScale * (0.2 + e * 0.8) + Math.sin(this.revealTime * 2) * 0.06;
             this.revealDog.rotation.y = 0.12 + Math.sin(this.revealTime * 0.8) * 0.18;
           }
           if (this.mode === "reveal") {
@@ -28233,25 +29030,27 @@
       best: {},
       seen: [],
       sound: true,
-      tutorial: false
+      tutorial: false,
+      cheats: { freeze: false, infinite: false, auto: false, instant: false }
     };
   }
   function loadSave(app) {
-    const base = defaultSave();
+    const base2 = defaultSave();
     try {
       const raw = app.storageGet(SAVE_KEY);
-      if (!raw) return base;
+      if (!raw) return base2;
       const data = typeof raw === "string" ? JSON.parse(raw) : raw;
-      if (!data || typeof data !== "object") return base;
-      const out = Object.assign(base, data);
-      out.unlocked = Math.max(1, Math.min(import_config2.default.LEVELS.length, out.unlocked || 1));
+      if (!data || typeof data !== "object") return base2;
+      const out = Object.assign(base2, data);
+      out.unlocked = Math.max(1, Math.min(import_config2.default.MAIN_LEVELS, out.unlocked || 1));
+      out.cheats = Object.assign(defaultSave().cheats, out.cheats && typeof out.cheats === "object" ? out.cheats : {});
       out.cleared = Array.isArray(out.cleared) ? out.cleared : [];
       out.seen = Array.isArray(out.seen) ? out.seen : [];
       out.best = out.best && typeof out.best === "object" ? out.best : {};
       out.sound = out.sound !== false;
       return out;
     } catch (e) {
-      return base;
+      return base2;
     }
   }
   function unique(arr) {
@@ -28325,6 +29124,7 @@
       soundEnabled: true,
       time: 0,
       pileTop: 0,
+      cheatPanel: false,
       save: null
     };
     const save = loadSave(app);
@@ -28350,6 +29150,8 @@
     let lastOverlayDraw = 0;
     let lastUrgentTick = -1;
     let lastDangerTick = -1;
+    let titleTaps = [];
+    let chipTaps = [];
     import_art.default.init(app);
     function persist() {
       try {
@@ -28415,8 +29217,8 @@
     }
     function startLevel(index) {
       if (index < 0 || index >= import_config2.default.LEVELS.length) return;
-      if (index > save.unlocked - 1) return;
       const level = import_config2.default.LEVELS[index];
+      if (index > save.unlocked - 1 && !level.open) return;
       const items = buildItems(level);
       state.levelIndex = index;
       state.level = level;
@@ -28437,8 +29239,10 @@
       state.trayWarnUntil = 0;
       state.fx = [];
       state.introUntil = tNow + 1.8;
-      state.props = { undo: 1, shuffle: 1, hint: 1 };
+      state.props = Object.assign({ undo: 1, shuffle: 1, hint: 1 }, level.props || {});
       state.tutorial = !save.tutorial;
+      state.cheatPanel = false;
+      chipTaps = [];
       state.paused = false;
       state.showResult = false;
       state.result = null;
@@ -28501,6 +29305,7 @@
       state.tray.splice(insertAt, 0, trayItem);
       state.lastPick = trayItem;
       state.score += 10;
+      if (save.cheats.auto) autoComplete(item);
       let sameCount = 0;
       for (let i = 0; i < state.tray.length; i++) if (state.tray[i].typeId === item.typeId) sameCount++;
       sound.play("pick", Math.min(3, sameCount));
@@ -28556,6 +29361,35 @@
       markDirty();
       checkOutcome();
     }
+    function autoComplete(item) {
+      let have = 0;
+      for (let i = 0; i < state.tray.length; i++) if (state.tray[i].typeId === item.typeId) have++;
+      for (let i = 0; i < state.items.length && have < 3; i++) {
+        const other = state.items[i];
+        if (other.picked || other.typeId !== item.typeId) continue;
+        other.picked = true;
+        other.pickable = false;
+        state.remaining--;
+        if (world) world.pickDog(other);
+        const at = state.tray.indexOf(state.lastPick) + 1;
+        state.tray.splice(at, 0, { uid: other.id, typeId: other.typeId, item: other, at: tNow });
+        have++;
+      }
+    }
+    function cheatWin() {
+      if (state.status !== "playing") return;
+      for (let i = 0; i < state.items.length; i++) {
+        state.items[i].picked = true;
+        state.items[i].pickable = false;
+      }
+      state.tray = [];
+      state.remaining = 0;
+      state.tutorial = false;
+      state.score = Math.max(state.score, 2333);
+      state.maxCombo = Math.max(state.maxCombo, 6);
+      if (state.timeLeft < state.level.time * 0.5) state.timeLeft = state.level.time * 0.5;
+      winLevel();
+    }
     function updateTrayDanger() {
       let danger = false;
       if (state.tray.length >= 6) {
@@ -28600,10 +29434,10 @@
       const used = Math.max(0, level.time - state.timeLeft);
       const ratio = state.timeLeft / level.time;
       const stars = ratio > 0.45 ? 3 : ratio > 0.18 ? 2 : 1;
-      const finalWin = level.id === 3;
+      const finalWin = level.id === 3 || !!level.hard;
       const hadCleared = save.cleared.indexOf(level.id) >= 0;
       save.cleared = unique(save.cleared.concat([level.id]));
-      save.unlocked = Math.max(save.unlocked, Math.min(import_config2.default.LEVELS.length, state.levelIndex + 2));
+      save.unlocked = Math.max(save.unlocked, Math.min(import_config2.default.MAIN_LEVELS, state.levelIndex + 2));
       save.seen = unique(save.seen.concat([level.reward]));
       const oldBest = save.best[level.id];
       if (!oldBest || state.score > oldBest.score) {
@@ -28613,12 +29447,13 @@
       state.result = {
         type: "win",
         finalWin,
+        hard: !!level.hard,
         rewardType: level.reward,
         stars,
         score: state.score,
         used,
         maxCombo: Math.max(1, state.maxCombo),
-        hasChallenge: state.levelIndex < import_config2.default.LEVELS.length - 1,
+        hasChallenge: state.levelIndex < import_config2.default.MAIN_LEVELS - 1,
         best: !hadCleared
       };
       state.resultAt = tNow + 1.1;
@@ -28646,7 +29481,8 @@
     }
     function useUndo() {
       if (state.scene !== "playing" || state.status !== "playing" || state.paused || state.tutorial) return;
-      if (state.props.undo <= 0) {
+      const infinite = save.cheats.infinite;
+      if (state.props.undo <= 0 && !infinite) {
         showToast("\u64A4\u56DE\u9053\u5177\u5DF2\u7ECF\u7528\u5B8C\u5566");
         return;
       }
@@ -28667,7 +29503,7 @@
       state.remaining++;
       state.score = Math.max(0, state.score - 10);
       state.lastPick = null;
-      state.props.undo--;
+      if (!infinite) state.props.undo--;
       if (world) world.restoreDog(ti.item);
       updateTrayDanger();
       showToast("\u5DF2\u628A\u300C" + import_config2.default.getDog(ti.typeId).name + "\u300D\u653E\u56DE\u76C6\u91CC");
@@ -28676,21 +29512,21 @@
     }
     function useShuffle() {
       if (state.scene !== "playing" || state.status !== "playing" || state.paused || state.tutorial) return;
-      if (state.props.shuffle <= 0) {
+      if (state.props.shuffle <= 0 && !save.cheats.infinite) {
         showToast("\u6D17\u724C\u9053\u5177\u5DF2\u7ECF\u7528\u5B8C\u5566");
         return;
       }
-      state.props.shuffle--;
+      if (!save.cheats.infinite) state.props.shuffle--;
       if (world) world.shuffle();
       state.shakeReadyAt = tNow + 0.7;
-      showToast("\u76C6\u91CC\u7684\u72D7\u72D7\u91CD\u65B0\u6392\u597D\u5566");
+      showToast("\u5168\u90E8\u5012\u51FA\u6765\u91CD\u65B0\u653E\u4E00\u904D\uFF01");
       sound.play("shake");
       app.vibrate(14);
       markDirty();
     }
     function useHint() {
       if (state.scene !== "playing" || state.status !== "playing" || state.paused || state.tutorial) return;
-      if (state.props.hint <= 0) {
+      if (state.props.hint <= 0 && !save.cheats.infinite) {
         showToast("\u63D0\u793A\u9053\u5177\u5DF2\u7ECF\u7528\u5B8C\u5566");
         return;
       }
@@ -28698,7 +29534,7 @@
       const trayByType = {};
       for (let i = 0; i < state.items.length; i++) {
         const it = state.items[i];
-        if (!it.picked) {
+        if (!it.picked && it.body && it.body.active) {
           if (!pileByType[it.typeId]) pileByType[it.typeId] = [];
           pileByType[it.typeId].push(it);
         }
@@ -28722,9 +29558,9 @@
         if (world) world.shuffle();
         return;
       }
-      state.props.hint--;
+      if (!save.cheats.infinite) state.props.hint--;
       const pileItems = pileByType[bestType] || [];
-      pileItems.sort((a, b) => (b.group ? b.group.position.y : 0) - (a.group ? a.group.position.y : 0));
+      pileItems.sort((a, b) => b.body.p.y - a.body.p.y);
       let visible = [];
       if (world) {
         for (let i = 0; i < pileItems.length; i++) {
@@ -28759,7 +29595,7 @@
     function shareGame() {
       const finalWin = state.result && state.result.finalWin;
       app.share({
-        title: finalWin ? "\u6211\u5728\u300A\u6293\u5927\u72D7\u300B\u91CC\u6293\u5230\u85AF\u6761\u5566\uFF01" : "\u4E09\u53EA\u540C\u6B3E\uFF0C\u6293\u8D70\u5927\u72D7\uFF01\u6765\u6311\u6218\u300A\u6293\u5927\u72D7\u300B",
+        title: state.result && state.result.hard ? "\u6211\u5728\u300A\u6293\u5927\u72D7\u300B\u5730\u72F1\u96BE\u5EA6\u91CC\u6293\u5230\u4E86\u54E5\u65AF\u62C9\uFF01" : finalWin ? "\u6211\u5728\u300A\u6293\u5927\u72D7\u300B\u91CC\u6293\u5230\u85AF\u6761\u5566\uFF01" : "\u4E09\u53EA\u540C\u6B3E\uFF0C\u6293\u8D70\u5927\u72D7\uFF01\u6765\u6311\u6218\u300A\u6293\u5927\u72D7\u300B",
         query: "from=share"
       });
     }
@@ -28792,6 +29628,42 @@
         toggleSound();
         return;
       }
+      if (action === "titleTap") {
+        titleTaps = titleTaps.filter((at) => tNow - at < 2).concat([tNow]);
+        if (titleTaps.length >= 5) {
+          titleTaps = [];
+          state.cheatPanel = !state.cheatPanel;
+          sound.play(state.cheatPanel ? "combo" : "tap", 1);
+          app.vibrate(20);
+        }
+        markDirty();
+        return;
+      }
+      if (action === "closeCheats") {
+        state.cheatPanel = false;
+        markDirty();
+        sound.play("tap", 1);
+        return;
+      }
+      if (action.indexOf("cheat:") === 0) {
+        const key = action.slice(6);
+        if (key in save.cheats) {
+          save.cheats[key] = !save.cheats[key];
+          persist();
+          sound.play("tap", 2);
+          markDirty();
+        }
+        return;
+      }
+      if (action === "chipTap") {
+        if (!save.cheats.instant || state.status !== "playing") return;
+        chipTaps = chipTaps.filter((at) => tNow - at < 1.2).concat([tNow]);
+        if (chipTaps.length >= 3) {
+          chipTaps = [];
+          cheatWin();
+        }
+        return;
+      }
       if (action === "pause") {
         if (state.status === "playing") {
           state.paused = !state.paused;
@@ -28811,7 +29683,7 @@
         return;
       }
       if (action === "nextLevel") {
-        if (state.levelIndex + 1 < import_config2.default.LEVELS.length) startLevel(state.levelIndex + 1);
+        if (state.levelIndex + 1 < import_config2.default.MAIN_LEVELS) startLevel(state.levelIndex + 1);
         else goHome();
         return;
       }
@@ -28877,9 +29749,10 @@
       touch.y = y;
       if (Math.abs(x - touch.startX) + Math.abs(y - touch.startY) > 10) touch.moved = true;
       if (touch.pressed && state.scene === "playing" && state.status === "playing" && !state.paused && !state.tutorial) {
+        if (!touch.moved) return;
         if (tNow - (touch.lastPickAt || 0) < 0.04) return;
         touch.lastPickAt = tNow;
-        const item = world ? world.pickAt(x, y) : null;
+        const item = world ? world.pickAt(x, y, touch.pressed) : null;
         if (item && item !== touch.pressed) {
           touch.pressed = item;
           if (world) world.setPressed(item);
@@ -28896,7 +29769,8 @@
       } else if (touch.pressed) {
         if (world) {
           world.setPressed(null);
-          if (touch.pressed.pickable && touch.pressed.anim === "idle") pickItem(touch.pressed);
+          const p = touch.pressed;
+          if (p.pickable && (p.anim === "idle" || p.anim === "spawn")) pickItem(p);
         }
       }
       touch = null;
@@ -28910,7 +29784,7 @@
       syncDerived(t);
       if (state.scene === "playing" && state.status === "playing" && !state.paused && !state.tutorial) {
         const realDt = state.timerAt ? Math.min(1.5, Math.max(0, t - state.timerAt)) : dt;
-        state.timeLeft -= realDt;
+        if (!save.cheats.freeze) state.timeLeft -= realDt;
         if (state.timeLeft <= 0) {
           state.timeLeft = 0;
           loseLevel("\u65F6\u95F4\u5230\uFF0C\u5927\u72D7\u4ECE\u76C6\u91CC\u6E9C\u8D70\u4E86");
@@ -29015,6 +29889,7 @@
       started = true;
       computeLayout();
       world = new three_world_default(app.canvas, app, app.width, app.height);
+      import_art.default.setPortraitProvider((typeId) => world.renderPortrait(typeId));
       createOverlay();
       world.update(0, 0);
       drawOverlay(0);
@@ -29085,7 +29960,7 @@
     }
     function debugPositions() {
       if (!world) return [];
-      return state.items.filter((it) => !it.picked && it.group).map((it) => {
+      return state.items.filter((it) => !it.picked && it.body && it.body.active).map((it) => {
         const p = world.screenOf(it);
         return {
           id: it.id,
@@ -29096,6 +29971,10 @@
           anim: it.anim
         };
       });
+    }
+    function debugPickAt(x, y) {
+      const it = world ? world.pickAt(x, y) : null;
+      return it ? it.id : null;
     }
     function debugInfo() {
       return {
@@ -29122,6 +30001,8 @@
       debugWin,
       debugLose,
       debugScene,
+      cheatWin,
+      debugPickAt,
       startLevel
     };
   }
